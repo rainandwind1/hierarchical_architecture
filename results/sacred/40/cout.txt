@@ -1,0 +1,1232 @@
+[INFO 19:31:15] pymarl Running command 'my_main'
+[INFO 19:31:15] pymarl Started run with ID "40"
+[DEBUG 19:31:15] pymarl Starting Heartbeat
+[DEBUG 19:31:15] my_main Started
+[INFO 19:31:15] my_main Experiment Parameters:
+[INFO 19:31:15] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 32,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 5000,
+    'checkpoint_path': '',
+    'critic_lr': 0.0005,
+    'double_q': True,
+    'env': 'sc2',
+    'env_args': {   'continuing_episode': False,
+                    'debug': False,
+                    'difficulty': '7',
+                    'game_version': None,
+                    'heuristic_ai': False,
+                    'heuristic_rest': False,
+                    'map_name': '8m',
+                    'move_amount': 2,
+                    'obs_all_health': True,
+                    'obs_instead_of_state': False,
+                    'obs_last_action': False,
+                    'obs_own_health': True,
+                    'obs_pathing_grid': False,
+                    'obs_terrain_height': False,
+                    'obs_timestep_number': False,
+                    'replay_dir': '',
+                    'replay_prefix': '',
+                    'reward_death_value': 10,
+                    'reward_defeat': 0,
+                    'reward_negative_scale': 0.5,
+                    'reward_only_positive': True,
+                    'reward_scale': True,
+                    'reward_scale_rate': 20,
+                    'reward_sparse': False,
+                    'reward_win': 200,
+                    'seed': 191233051,
+                    'state_last_action': True,
+                    'state_timestep_number': False,
+                    'step_mul': 8},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 10000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'graph_qmix',
+    'mixing_embed_dim': 32,
+    'name': 'graph_qmix',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'episode',
+    'runner_log_interval': 10000,
+    'save_model': False,
+    'save_model_interval': 2000000,
+    'save_replay': False,
+    'seed': 191233051,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'test_greedy': True,
+    'test_interval': 10000,
+    'test_nepisode': 32,
+    'use_cuda': True,
+    'use_tensorboard': False}
+
+[INFO 19:31:17] my_main Beginning training for 2050000 timesteps
+[INFO 19:31:17] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 16623 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-twhic78o/
+[INFO 19:31:18] absl Connecting to: ws://127.0.0.1:16623/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 16623 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-twhic78o/'
+Starting up...
+Startup Phase 1 complete
+[INFO 19:31:19] absl Connecting to: ws://127.0.0.1:16623/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:16623
+Startup Phase 3 complete. Ready for commands.
+[INFO 19:31:20] absl Connecting to: ws://127.0.0.1:16623/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:33176 accepted
+ReadyHandler: 127.0.0.1:33176 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/pymarl_base/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 19:31:26] my_main t_env: 27 / 2050000
+[INFO 19:31:26] my_main Estimated time left: 29 minutes, 18 seconds. Time passed: 8 seconds
+[INFO 19:33:20] my_main Updated target network
+[INFO 19:34:12] my_main Recent Stats | t_env:      10002 | Episode:      315
+battle_won_mean:           0.0000	dead_allies_mean:          8.0000	dead_enemies_mean:         0.0000	ep_length_mean:           27.0000
+epsilon:                   1.0000	grad_norm:                 0.8755	loss:                      0.0496	q_taken_mean:              0.0164
+return_mean:               2.4375	return_std:                0.0000	target_mean:               0.0339	td_error_abs:              0.1669
+test_battle_won_mean:      0.0000	test_dead_allies_mean:     6.3438	test_dead_enemies_mean:    0.7500	test_ep_length_mean:      93.0000
+test_return_mean:          1.5176	test_return_std:           0.4460	
+[INFO 19:34:13] my_main t_env: 10030 / 2050000
+[INFO 19:34:13] my_main Estimated time left: 9 hours, 26 minutes, 1 seconds. Time passed: 2 minutes, 55 seconds
+[INFO 19:35:06] my_main Updated target network
+[INFO 19:36:32] my_main Updated target network
+[INFO 19:37:14] my_main Recent Stats | t_env:      20011 | Episode:      703
+battle_won_mean:           0.0000	dead_allies_mean:          8.0000	dead_enemies_mean:         0.0016	ep_length_mean:           29.3778
+epsilon:                   0.8100	grad_norm:                 0.5164	loss:                      0.0324	q_taken_mean:              0.0311
+return_mean:               2.2301	return_std:                0.2297	target_mean:               0.0413	td_error_abs:              0.1302
+test_battle_won_mean:      0.0000	test_dead_allies_mean:     6.9844	test_dead_enemies_mean:    0.8281	test_ep_length_mean:      73.9062
+test_return_mean:          3.0083	test_return_std:           1.1412	
+[INFO 19:37:14] my_main t_env: 20033 / 2050000
+[INFO 19:37:14] my_main Estimated time left: 10 hours, 15 minutes, 4 seconds. Time passed: 5 minutes, 56 seconds
+[INFO 19:38:03] my_main Updated target network
+[INFO 19:39:22] my_main Updated target network
+[INFO 19:40:22] my_main Recent Stats | t_env:      30031 | Episode:     1157
+battle_won_mean:           0.0000	dead_allies_mean:          7.9966	dead_enemies_mean:         0.0706	ep_length_mean:           28.1788
+epsilon:                   0.6198	grad_norm:                 0.4423	loss:                      0.0262	q_taken_mean:              0.0597
+return_mean:               2.5147	return_std:                0.4795	target_mean:               0.0651	td_error_abs:              0.1177
+test_battle_won_mean:      0.1458	test_dead_allies_mean:     6.9375	test_dead_enemies_mean:    2.7396	test_ep_length_mean:      58.8854
+test_return_mean:          6.9756	test_return_std:           2.2895	
+[INFO 19:40:22] my_main t_env: 30054 / 2050000
+[INFO 19:40:22] my_main Estimated time left: 10 hours, 30 minutes, 52 seconds. Time passed: 9 minutes, 4 seconds
+[INFO 19:40:48] my_main Updated target network
+[INFO 19:42:08] my_main Updated target network
+[INFO 19:43:24] my_main t_env: 40054 / 2050000
+[INFO 19:43:24] my_main Estimated time left: 10 hours, 9 minutes, 6 seconds. Time passed: 12 minutes, 6 seconds
+[INFO 19:43:32] my_main Recent Stats | t_env:      40054 | Episode:     1596
+battle_won_mean:           0.0005	dead_allies_mean:          7.9948	dead_enemies_mean:         0.8027	ep_length_mean:           25.8880
+epsilon:                   0.2395	grad_norm:                 0.6421	loss:                      0.0279	q_taken_mean:              0.0900
+return_mean:               3.9747	return_std:                0.8774	target_mean:               0.0905	td_error_abs:              0.1226
+test_battle_won_mean:      0.4250	test_dead_allies_mean:     6.0813	test_dead_enemies_mean:    4.7250	test_ep_length_mean:      46.2250
+test_return_mean:         11.6855	test_return_std:           2.5281	
+[INFO 19:43:34] my_main Updated target network
+[INFO 19:44:52] my_main Updated target network
+[INFO 19:46:07] my_main t_env: 50059 / 2050000
+[INFO 19:46:07] my_main Estimated time left: 9 hours, 3 minutes, 22 seconds. Time passed: 14 minutes, 49 seconds
+[INFO 19:46:15] my_main Recent Stats | t_env:      50059 | Episode:     1981
+battle_won_mean:           0.0270	dead_allies_mean:          7.9205	dead_enemies_mean:         1.7487	ep_length_mean:           25.6854
+epsilon:                   0.0500	grad_norm:                 1.6909	loss:                      0.0509	q_taken_mean:              0.1397
+return_mean:               5.7148	return_std:                1.6341	target_mean:               0.1459	td_error_abs:              0.1519
+test_battle_won_mean:      0.5625	test_dead_allies_mean:     5.9625	test_dead_enemies_mean:    6.0062	test_ep_length_mean:      32.8125
+test_return_mean:         14.8537	test_return_std:           3.2273	
+[INFO 19:46:24] my_main Updated target network
+[INFO 19:47:44] my_main Updated target network
+RequestQuit command received.
+DataHandler: unable to parse websocket frame.
+Closing Application...
+CloseHandler: 127.0.0.1:33176 disconnected
+[INFO 19:47:54] absl Shutdown gracefully.
+[INFO 19:47:54] absl Shutdown with return code: -15
+[INFO 19:47:54] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 19110 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-bk5jyxfk/
+[INFO 19:47:54] absl Connecting to: ws://127.0.0.1:19110/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 19110 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-bk5jyxfk/'
+Starting up...
+Startup Phase 1 complete
+[INFO 19:47:55] absl Connecting to: ws://127.0.0.1:19110/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:19110
+Startup Phase 3 complete. Ready for commands.
+[INFO 19:47:56] absl Connecting to: ws://127.0.0.1:19110/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:52796 accepted
+ReadyHandler: 127.0.0.1:52796 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 19:48:52] my_main t_env: 60086 / 2050000
+[INFO 19:48:52] my_main Estimated time left: 9 hours, 3 minutes, 52 seconds. Time passed: 17 minutes, 34 seconds
+[INFO 19:48:59] my_main Recent Stats | t_env:      60086 | Episode:     2343
+battle_won_mean:           0.1153	dead_allies_mean:          7.6404	dead_enemies_mean:         3.0132	ep_length_mean:           24.8741
+epsilon:                   0.0500	grad_norm:                 3.7885	loss:                      0.0863	q_taken_mean:              0.2284
+return_mean:               8.3099	return_std:                2.4511	target_mean:               0.2256	td_error_abs:              0.1760
+test_battle_won_mean:      0.7625	test_dead_allies_mean:     5.3562	test_dead_enemies_mean:    7.4250	test_ep_length_mean:      27.2062
+test_return_mean:         17.9539	test_return_std:           2.8600	
+[INFO 19:49:23] my_main Updated target network
+[INFO 19:50:44] my_main Updated target network
+[INFO 19:51:24] my_main t_env: 70107 / 2050000
+[INFO 19:51:24] my_main Estimated time left: 8 hours, 22 minutes, 22 seconds. Time passed: 20 minutes, 6 seconds
+[INFO 19:51:32] my_main Recent Stats | t_env:      70107 | Episode:     2703
+battle_won_mean:           0.2231	dead_allies_mean:          7.3052	dead_enemies_mean:         4.3431	ep_length_mean:           25.2852
+epsilon:                   0.0500	grad_norm:                 5.7604	loss:                      0.1362	q_taken_mean:              0.3370
+return_mean:              10.8893	return_std:                3.1429	target_mean:               0.3382	td_error_abs:              0.2195
+test_battle_won_mean:      0.8625	test_dead_allies_mean:     4.9688	test_dead_enemies_mean:    7.6687	test_ep_length_mean:      26.8375
+test_return_mean:         18.8514	test_return_std:           2.4152	
+[INFO 19:52:10] my_main Updated target network
+[INFO 19:53:29] my_main Updated target network
+[INFO 19:53:56] my_main t_env: 80117 / 2050000
+[INFO 19:53:56] my_main Estimated time left: 8 hours, 18 minutes, 24 seconds. Time passed: 22 minutes, 38 seconds
+[INFO 19:54:03] my_main Recent Stats | t_env:      80117 | Episode:     3071
+battle_won_mean:           0.3307	dead_allies_mean:          6.9524	dead_enemies_mean:         5.4640	ep_length_mean:           26.3108
+epsilon:                   0.0500	grad_norm:                 8.1850	loss:                      0.1690	q_taken_mean:              0.4589
+return_mean:              13.0528	return_std:                3.8249	target_mean:               0.4651	td_error_abs:              0.2597
+test_battle_won_mean:      0.8313	test_dead_allies_mean:     5.0625	test_dead_enemies_mean:    7.5500	test_ep_length_mean:      26.3563
+test_return_mean:         18.5551	test_return_std:           2.6092	
+[INFO 19:54:57] my_main Updated target network
+[INFO 19:56:18] my_main Updated target network
+[INFO 19:56:32] my_main t_env: 90127 / 2050000
+[INFO 19:56:32] my_main Estimated time left: 8 hours, 29 minutes, 50 seconds. Time passed: 25 minutes, 14 seconds
+[INFO 19:56:40] my_main Recent Stats | t_env:      90127 | Episode:     3438
+battle_won_mean:           0.4333	dead_allies_mean:          6.6145	dead_enemies_mean:         6.2369	ep_length_mean:           27.1997
+epsilon:                   0.0500	grad_norm:                11.6147	loss:                      0.2114	q_taken_mean:              0.5798
+return_mean:              14.6854	return_std:                4.4293	target_mean:               0.5932	td_error_abs:              0.2986
+test_battle_won_mean:      0.8188	test_dead_allies_mean:     5.2000	test_dead_enemies_mean:    7.4750	test_ep_length_mean:      26.2812
+test_return_mean:         18.4020	test_return_std:           2.8248	
+[INFO 19:57:47] my_main Updated target network
+[INFO 19:59:03] my_main t_env: 100137 / 2050000
+[INFO 19:59:03] my_main Estimated time left: 8 hours, 8 minutes, 31 seconds. Time passed: 27 minutes, 45 seconds
+[INFO 19:59:11] my_main Recent Stats | t_env:     100137 | Episode:     3791
+battle_won_mean:           0.5139	dead_allies_mean:          6.3251	dead_enemies_mean:         6.6258	ep_length_mean:           27.6736
+epsilon:                   0.0500	grad_norm:                13.9186	loss:                      0.2226	q_taken_mean:              0.7044
+return_mean:              15.6273	return_std:                4.5864	target_mean:               0.7150	td_error_abs:              0.3059
+test_battle_won_mean:      0.8375	test_dead_allies_mean:     5.1500	test_dead_enemies_mean:    7.4812	test_ep_length_mean:      27.1250
+test_return_mean:         18.5170	test_return_std:           2.8300	
+[INFO 19:59:15] my_main Updated target network
+[INFO 20:00:37] my_main Updated target network
+[INFO 20:01:29] my_main t_env: 110205 / 2050000
+[INFO 20:01:29] my_main Estimated time left: 7 hours, 47 minutes, 51 seconds. Time passed: 30 minutes, 11 seconds
+[INFO 20:01:36] my_main Recent Stats | t_env:     110205 | Episode:     4130
+battle_won_mean:           0.5157	dead_allies_mean:          6.3190	dead_enemies_mean:         6.6184	ep_length_mean:           28.0737
+epsilon:                   0.0500	grad_norm:                18.0398	loss:                      0.2437	q_taken_mean:              0.8350
+return_mean:              15.6159	return_std:                4.6177	target_mean:               0.8568	td_error_abs:              0.3297
+test_battle_won_mean:      0.8188	test_dead_allies_mean:     5.1375	test_dead_enemies_mean:    7.4187	test_ep_length_mean:      26.8125
+test_return_mean:         18.3381	test_return_std:           3.3899	
+[INFO 20:02:06] my_main Updated target network
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:52796 disconnected
+[INFO 20:03:02] absl Shutdown gracefully.
+[INFO 20:03:02] absl Shutdown with return code: -15
+[INFO 20:03:02] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 18995 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-umtqkb6u/
+[INFO 20:03:03] absl Connecting to: ws://127.0.0.1:18995/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 18995 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-umtqkb6u/'
+Starting up...
+Startup Phase 1 complete
+[INFO 20:03:04] absl Connecting to: ws://127.0.0.1:18995/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:18995
+Startup Phase 3 complete. Ready for commands.
+[INFO 20:03:05] absl Connecting to: ws://127.0.0.1:18995/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:41022 accepted
+ReadyHandler: 127.0.0.1:41022 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 20:03:39] my_main Updated target network
+[INFO 20:04:03] my_main t_env: 120227 / 2050000
+[INFO 20:04:03] my_main Estimated time left: 8 hours, 15 minutes, 56 seconds. Time passed: 32 minutes, 45 seconds
+[INFO 20:04:11] my_main Recent Stats | t_env:     120227 | Episode:     4458
+battle_won_mean:           0.4939	dead_allies_mean:          6.3776	dead_enemies_mean:         6.4864	ep_length_mean:           28.6174
+epsilon:                   0.0500	grad_norm:                20.2892	loss:                      0.2370	q_taken_mean:              0.9374
+return_mean:              15.3655	return_std:                4.6659	target_mean:               0.9580	td_error_abs:              0.3382
+test_battle_won_mean:      0.7875	test_dead_allies_mean:     5.1125	test_dead_enemies_mean:    7.3187	test_ep_length_mean:      27.0938
+test_return_mean:         18.0658	test_return_std:           3.6677	
+[INFO 20:05:16] my_main Updated target network
+[INFO 20:06:27] my_main t_env: 130292 / 2050000
+[INFO 20:06:27] my_main Estimated time left: 7 hours, 38 minutes, 43 seconds. Time passed: 35 minutes, 9 seconds
+[INFO 20:06:36] my_main Recent Stats | t_env:     130292 | Episode:     4764
+battle_won_mean:           0.4765	dead_allies_mean:          6.4492	dead_enemies_mean:         6.4269	ep_length_mean:           29.7557
+epsilon:                   0.0500	grad_norm:                22.6582	loss:                      0.2693	q_taken_mean:              1.0107
+return_mean:              15.2270	return_std:                4.6445	target_mean:               1.0323	td_error_abs:              0.3627
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.0875	test_dead_enemies_mean:    7.3187	test_ep_length_mean:      27.7125
+test_return_mean:         18.0814	test_return_std:           3.7133	
+[INFO 20:06:50] my_main Updated target network
+[INFO 20:08:14] my_main Updated target network
+[INFO 20:08:59] my_main t_env: 140312 / 2050000
+[INFO 20:08:59] my_main Estimated time left: 8 hours, 1 minutes, 39 seconds. Time passed: 37 minutes, 41 seconds
+[INFO 20:09:06] my_main Recent Stats | t_env:     140312 | Episode:     5104
+battle_won_mean:           0.4623	dead_allies_mean:          6.5174	dead_enemies_mean:         6.3938	ep_length_mean:           30.1947
+epsilon:                   0.0500	grad_norm:                24.3056	loss:                      0.2847	q_taken_mean:              1.0659
+return_mean:              15.1307	return_std:                4.6091	target_mean:               1.0888	td_error_abs:              0.3806
+test_battle_won_mean:      0.7875	test_dead_allies_mean:     5.1062	test_dead_enemies_mean:    7.3063	test_ep_length_mean:      27.7125
+test_return_mean:         18.0303	test_return_std:           3.7436	
+[INFO 20:09:49] my_main Updated target network
+[INFO 20:11:06] my_main Updated target network
+[INFO 20:11:31] my_main t_env: 150317 / 2050000
+[INFO 20:11:31] my_main Estimated time left: 8 hours, 2 minutes, 10 seconds. Time passed: 40 minutes, 13 seconds
+[INFO 20:11:39] my_main Recent Stats | t_env:     150317 | Episode:     5459
+battle_won_mean:           0.4589	dead_allies_mean:          6.5414	dead_enemies_mean:         6.3677	ep_length_mean:           30.1600
+epsilon:                   0.0500	grad_norm:                26.9847	loss:                      0.3122	q_taken_mean:              1.1046
+return_mean:              15.0830	return_std:                4.6249	target_mean:               1.1293	td_error_abs:              0.3982
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.0750	test_dead_enemies_mean:    7.3562	test_ep_length_mean:      27.0312
+test_return_mean:         18.1049	test_return_std:           3.6614	
+[INFO 20:12:35] my_main Updated target network
+[INFO 20:13:57] my_main Updated target network
+[INFO 20:14:01] my_main t_env: 160318 / 2050000
+[INFO 20:14:01] my_main Estimated time left: 7 hours, 51 minutes, 35 seconds. Time passed: 42 minutes, 43 seconds
+[INFO 20:14:08] my_main Recent Stats | t_env:     160318 | Episode:     5813
+battle_won_mean:           0.4737	dead_allies_mean:          6.4795	dead_enemies_mean:         6.4172	ep_length_mean:           29.8704
+epsilon:                   0.0500	grad_norm:                28.5549	loss:                      0.3629	q_taken_mean:              1.1332
+return_mean:              15.2142	return_std:                4.6313	target_mean:               1.1594	td_error_abs:              0.4256
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.1438	test_dead_enemies_mean:    7.3812	test_ep_length_mean:      27.2313
+test_return_mean:         18.1256	test_return_std:           3.5987	
+[INFO 20:15:25] my_main Updated target network
+[INFO 20:16:30] my_main t_env: 170328 / 2050000
+[INFO 20:16:30] my_main Estimated time left: 7 hours, 46 minutes, 13 seconds. Time passed: 45 minutes, 12 seconds
+[INFO 20:16:38] my_main Recent Stats | t_env:     170328 | Episode:     6163
+battle_won_mean:           0.4958	dead_allies_mean:          6.4056	dead_enemies_mean:         6.4827	ep_length_mean:           29.4795
+epsilon:                   0.0500	grad_norm:                32.2693	loss:                      0.4198	q_taken_mean:              1.2246
+return_mean:              15.4040	return_std:                4.6509	target_mean:               1.2416	td_error_abs:              0.4597
+test_battle_won_mean:      0.7812	test_dead_allies_mean:     5.2812	test_dead_enemies_mean:    7.3500	test_ep_length_mean:      27.3625
+test_return_mean:         18.0172	test_return_std:           3.6590	
+[INFO 20:16:54] my_main Updated target network
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:41022 disconnected
+[INFO 20:18:02] absl Shutdown gracefully.
+[INFO 20:18:02] absl Shutdown with return code: -15
+[INFO 20:18:02] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 23568 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-klrxy56d/
+[INFO 20:18:03] absl Connecting to: ws://127.0.0.1:23568/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 23568 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-klrxy56d/'
+Starting up...
+Startup Phase 1 complete
+[INFO 20:18:04] absl Connecting to: ws://127.0.0.1:23568/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:23568
+Startup Phase 3 complete. Ready for commands.
+[INFO 20:18:05] absl Connecting to: ws://127.0.0.1:23568/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:56384 accepted
+ReadyHandler: 127.0.0.1:56384 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 20:18:22] my_main Updated target network
+[INFO 20:19:14] my_main t_env: 180335 / 2050000
+[INFO 20:19:14] my_main Estimated time left: 8 hours, 30 minutes, 4 seconds. Time passed: 47 minutes, 56 seconds
+[INFO 20:19:22] my_main Recent Stats | t_env:     180335 | Episode:     6521
+battle_won_mean:           0.5100	dead_allies_mean:          6.3376	dead_enemies_mean:         6.5005	ep_length_mean:           28.4915
+epsilon:                   0.0500	grad_norm:                37.8398	loss:                      0.4829	q_taken_mean:              1.3078
+return_mean:              15.4987	return_std:                4.6914	target_mean:               1.3120	td_error_abs:              0.4871
+test_battle_won_mean:      0.8188	test_dead_allies_mean:     5.1500	test_dead_enemies_mean:    7.4812	test_ep_length_mean:      26.8813
+test_return_mean:         18.3893	test_return_std:           3.3498	
+[INFO 20:19:56] my_main Updated target network
+[INFO 20:21:22] my_main Updated target network
+[INFO 20:21:54] my_main t_env: 190337 / 2050000
+[INFO 20:21:54] my_main Estimated time left: 8 hours, 16 minutes, 55 seconds. Time passed: 50 minutes, 36 seconds
+[INFO 20:22:03] my_main Recent Stats | t_env:     190337 | Episode:     6875
+battle_won_mean:           0.5257	dead_allies_mean:          6.2715	dead_enemies_mean:         6.5494	ep_length_mean:           28.2483
+epsilon:                   0.0500	grad_norm:                40.1355	loss:                      0.5739	q_taken_mean:              1.4035
+return_mean:              15.6378	return_std:                4.6961	target_mean:               1.4110	td_error_abs:              0.5363
+test_battle_won_mean:      0.8125	test_dead_allies_mean:     5.1562	test_dead_enemies_mean:    7.4750	test_ep_length_mean:      27.3438
+test_return_mean:         18.3617	test_return_std:           3.3401	
+[INFO 20:22:55] my_main Updated target network
+[INFO 20:24:22] my_main Updated target network
+[INFO 20:24:35] my_main t_env: 200345 / 2050000
+[INFO 20:24:35] my_main Estimated time left: 8 hours, 14 minutes, 28 seconds. Time passed: 53 minutes, 17 seconds
+[INFO 20:24:43] my_main Recent Stats | t_env:     200345 | Episode:     7232
+battle_won_mean:           0.5425	dead_allies_mean:          6.2090	dead_enemies_mean:         6.6127	ep_length_mean:           28.2184
+epsilon:                   0.0500	grad_norm:                45.9841	loss:                      0.6589	q_taken_mean:              1.5021
+return_mean:              15.8067	return_std:                4.6546	target_mean:               1.5038	td_error_abs:              0.5817
+test_battle_won_mean:      0.8125	test_dead_allies_mean:     5.1188	test_dead_enemies_mean:    7.4812	test_ep_length_mean:      27.4875
+test_return_mean:         18.3736	test_return_std:           3.3242	
+[INFO 20:25:54] my_main Updated target network
+[INFO 20:27:13] my_main t_env: 210357 / 2050000
+[INFO 20:27:13] my_main Estimated time left: 8 hours, 5 minutes, 26 seconds. Time passed: 55 minutes, 55 seconds
+[INFO 20:27:21] my_main Recent Stats | t_env:     210357 | Episode:     7579
+battle_won_mean:           0.5406	dead_allies_mean:          6.2158	dead_enemies_mean:         6.6137	ep_length_mean:           28.3387
+epsilon:                   0.0500	grad_norm:                53.2488	loss:                      0.7582	q_taken_mean:              1.6202
+return_mean:              15.8140	return_std:                4.6272	target_mean:               1.6052	td_error_abs:              0.6067
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.1188	test_dead_enemies_mean:    7.4000	test_ep_length_mean:      27.6250
+test_return_mean:         18.1824	test_return_std:           3.5575	
+[INFO 20:27:32] my_main Updated target network
+[INFO 20:28:59] my_main Updated target network
+[INFO 20:29:53] my_main t_env: 220360 / 2050000
+[INFO 20:29:53] my_main Estimated time left: 8 hours, 5 minutes, 57 seconds. Time passed: 58 minutes, 35 seconds
+[INFO 20:30:01] my_main Recent Stats | t_env:     220360 | Episode:     7916
+battle_won_mean:           0.5412	dead_allies_mean:          6.2390	dead_enemies_mean:         6.6605	ep_length_mean:           28.5552
+epsilon:                   0.0500	grad_norm:                54.5880	loss:                      0.8257	q_taken_mean:              1.7540
+return_mean:              15.8621	return_std:                4.5772	target_mean:               1.7406	td_error_abs:              0.6242
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.1750	test_dead_enemies_mean:    7.4563	test_ep_length_mean:      27.7062
+test_return_mean:         18.2076	test_return_std:           3.5189	
+[INFO 20:30:37] my_main Updated target network
+[INFO 20:32:04] my_main Updated target network
+[INFO 20:32:23] my_main t_env: 230367 / 2050000
+[INFO 20:32:23] my_main Estimated time left: 7 hours, 36 minutes, 45 seconds. Time passed: 1 hours, 1 minutes, 5 seconds
+[INFO 20:32:32] my_main Recent Stats | t_env:     230367 | Episode:     8243
+battle_won_mean:           0.5352	dead_allies_mean:          6.2701	dead_enemies_mean:         6.6905	ep_length_mean:           29.0852
+epsilon:                   0.0500	grad_norm:                60.3150	loss:                      0.8742	q_taken_mean:              1.8211
+return_mean:              15.8355	return_std:                4.5400	target_mean:               1.8077	td_error_abs:              0.6309
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.1500	test_dead_enemies_mean:    7.4313	test_ep_length_mean:      28.1125
+test_return_mean:         18.1846	test_return_std:           3.5775	
+[INFO 20:33:39] my_main Updated target network
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:56384 disconnected
+[INFO 20:33:46] absl Shutdown gracefully.
+[INFO 20:33:46] absl Shutdown with return code: -15
+[INFO 20:33:46] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 18685 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-u_jv1cox/
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 18685 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-u_jv1cox/'
+[INFO 20:33:47] absl Connecting to: ws://127.0.0.1:18685/sc2api, attempt: 0, running: True
+Starting up...
+Startup Phase 1 complete
+[INFO 20:33:48] absl Connecting to: ws://127.0.0.1:18685/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:18685
+Startup Phase 3 complete. Ready for commands.
+[INFO 20:33:49] absl Connecting to: ws://127.0.0.1:18685/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:37238 accepted
+ReadyHandler: 127.0.0.1:37238 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 20:34:48] my_main t_env: 240386 / 2050000
+[INFO 20:34:48] my_main Estimated time left: 7 hours, 14 minutes, 28 seconds. Time passed: 1 hours, 3 minutes, 30 seconds
+[INFO 20:34:55] my_main Recent Stats | t_env:     240386 | Episode:     8571
+battle_won_mean:           0.5447	dead_allies_mean:          6.2536	dead_enemies_mean:         6.7382	ep_length_mean:           29.5435
+epsilon:                   0.0500	grad_norm:                73.9757	loss:                      1.0058	q_taken_mean:              1.9004
+return_mean:              15.9197	return_std:                4.5308	target_mean:               1.8923	td_error_abs:              0.6592
+test_battle_won_mean:      0.8313	test_dead_allies_mean:     4.9812	test_dead_enemies_mean:    7.5250	test_ep_length_mean:      28.3000
+test_return_mean:         18.4934	test_return_std:           3.2791	
+[INFO 20:35:06] my_main Updated target network
+[INFO 20:36:20] my_main Updated target network
+[INFO 20:36:47] my_main t_env: 250401 / 2050000
+[INFO 20:36:47] my_main Estimated time left: 5 hours, 58 minutes, 17 seconds. Time passed: 1 hours, 5 minutes, 29 seconds
+[INFO 20:36:56] my_main Recent Stats | t_env:     250401 | Episode:     8870
+battle_won_mean:           0.5199	dead_allies_mean:          6.3388	dead_enemies_mean:         6.6712	ep_length_mean:           30.6357
+epsilon:                   0.0500	grad_norm:                71.2400	loss:                      1.0255	q_taken_mean:              1.9957
+return_mean:              15.6681	return_std:                4.5803	target_mean:               1.9854	td_error_abs:              0.6496
+test_battle_won_mean:      0.8188	test_dead_allies_mean:     5.0938	test_dead_enemies_mean:    7.5250	test_ep_length_mean:      30.7687
+test_return_mean:         18.4035	test_return_std:           3.3150	
+[INFO 20:37:48] my_main Updated target network
+[INFO 20:38:48] my_main t_env: 260487 / 2050000
+[INFO 20:38:48] my_main Estimated time left: 5 hours, 55 minutes, 57 seconds. Time passed: 1 hours, 7 minutes, 30 seconds
+[INFO 20:38:56] my_main Recent Stats | t_env:     260487 | Episode:     9154
+battle_won_mean:           0.5111	dead_allies_mean:          6.3772	dead_enemies_mean:         6.6868	ep_length_mean:           31.9679
+epsilon:                   0.0500	grad_norm:                77.4713	loss:                      1.0641	q_taken_mean:              2.0514
+return_mean:              15.5961	return_std:                4.5776	target_mean:               2.0655	td_error_abs:              0.6763
+test_battle_won_mean:      0.8000	test_dead_allies_mean:     5.1813	test_dead_enemies_mean:    7.4812	test_ep_length_mean:      32.7438
+test_return_mean:         18.2674	test_return_std:           3.3721	
+[INFO 20:39:14] my_main Updated target network
+[INFO 20:40:33] my_main Updated target network
+[INFO 20:40:48] my_main t_env: 270559 / 2050000
+[INFO 20:40:48] my_main Estimated time left: 5 hours, 52 minutes, 58 seconds. Time passed: 1 hours, 9 minutes, 30 seconds
+[INFO 20:40:55] my_main Recent Stats | t_env:     270559 | Episode:     9436
+battle_won_mean:           0.4834	dead_allies_mean:          6.4619	dead_enemies_mean:         6.6207	ep_length_mean:           33.1747
+epsilon:                   0.0500	grad_norm:                96.3117	loss:                      1.9230	q_taken_mean:              2.1010
+return_mean:              15.3433	return_std:                4.5833	target_mean:               2.0726	td_error_abs:              0.9499
+test_battle_won_mean:      0.8000	test_dead_allies_mean:     5.2250	test_dead_enemies_mean:    7.5188	test_ep_length_mean:      34.1625
+test_return_mean:         18.3189	test_return_std:           3.2829	
+[INFO 20:42:01] my_main Updated target network
+[INFO 20:42:55] my_main t_env: 280578 / 2050000
+[INFO 20:42:55] my_main Estimated time left: 6 hours, 15 minutes, 23 seconds. Time passed: 1 hours, 11 minutes, 37 seconds
+[INFO 20:43:02] my_main Recent Stats | t_env:     280578 | Episode:     9736
+battle_won_mean:           0.4809	dead_allies_mean:          6.4826	dead_enemies_mean:         6.6140	ep_length_mean:           33.7336
+epsilon:                   0.0500	grad_norm:               102.1022	loss:                      1.9675	q_taken_mean:              2.1843
+return_mean:              15.3124	return_std:                4.5944	target_mean:               2.1510	td_error_abs:              0.9699
+test_battle_won_mean:      0.7875	test_dead_allies_mean:     5.3000	test_dead_enemies_mean:    7.5563	test_ep_length_mean:      34.3625
+test_return_mean:         18.2795	test_return_std:           3.2291	
+[INFO 20:43:28] my_main Updated target network
+[INFO 20:44:49] my_main Updated target network
+[INFO 20:45:04] my_main t_env: 290595 / 2050000
+[INFO 20:45:04] my_main Estimated time left: 6 hours, 16 minutes, 13 seconds. Time passed: 1 hours, 13 minutes, 46 seconds
+[INFO 20:45:10] my_main Recent Stats | t_env:     290595 | Episode:    10033
+battle_won_mean:           0.4739	dead_allies_mean:          6.4920	dead_enemies_mean:         6.5970	ep_length_mean:           34.3699
+epsilon:                   0.0500	grad_norm:                99.6069	loss:                      1.8916	q_taken_mean:              2.2226
+return_mean:              15.2545	return_std:                4.5952	target_mean:               2.1653	td_error_abs:              0.9384
+test_battle_won_mean:      0.7937	test_dead_allies_mean:     5.4000	test_dead_enemies_mean:    7.5875	test_ep_length_mean:      34.2250
+test_return_mean:         18.3523	test_return_std:           3.0157	
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:37238 disconnected
+[INFO 20:45:56] absl Shutdown gracefully.
+[INFO 20:45:56] absl Shutdown with return code: -15
+[INFO 20:45:56] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 16515 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-n0mgk9qa/
+[INFO 20:45:56] absl Connecting to: ws://127.0.0.1:16515/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 16515 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-n0mgk9qa/'
+Starting up...
+Startup Phase 1 complete
+[INFO 20:45:57] absl Connecting to: ws://127.0.0.1:16515/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:16515
+Startup Phase 3 complete. Ready for commands.
+[INFO 20:45:58] absl Connecting to: ws://127.0.0.1:16515/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:40704 accepted
+ReadyHandler: 127.0.0.1:40704 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 20:46:27] my_main Updated target network
+[INFO 20:47:17] my_main t_env: 300614 / 2050000
+[INFO 20:47:17] my_main Estimated time left: 6 hours, 28 minutes, 46 seconds. Time passed: 1 hours, 15 minutes, 59 seconds
+[INFO 20:47:25] my_main Recent Stats | t_env:     300614 | Episode:    10321
+battle_won_mean:           0.4894	dead_allies_mean:          6.4542	dead_enemies_mean:         6.6656	ep_length_mean:           34.6285
+epsilon:                   0.0500	grad_norm:               110.8849	loss:                      2.0440	q_taken_mean:              2.1990
+return_mean:              15.4339	return_std:                4.5457	target_mean:               2.1576	td_error_abs:              0.9881
+test_battle_won_mean:      0.7812	test_dead_allies_mean:     5.3812	test_dead_enemies_mean:    7.5875	test_ep_length_mean:      33.4688
+test_return_mean:         18.2941	test_return_std:           2.9932	
+[INFO 20:47:58] my_main Updated target network
+[INFO 20:49:24] my_main Updated target network
+[INFO 20:49:34] my_main t_env: 310621 / 2050000
+[INFO 20:49:34] my_main Estimated time left: 6 hours, 34 minutes, 50 seconds. Time passed: 1 hours, 18 minutes, 16 seconds
+[INFO 20:49:41] my_main Recent Stats | t_env:     310621 | Episode:    10622
+battle_won_mean:           0.5033	dead_allies_mean:          6.4135	dead_enemies_mean:         6.7098	ep_length_mean:           34.1749
+epsilon:                   0.0500	grad_norm:               108.5483	loss:                      2.0104	q_taken_mean:              2.2207
+return_mean:              15.5683	return_std:                4.5265	target_mean:               2.1568	td_error_abs:              0.9567
+test_battle_won_mean:      0.8313	test_dead_allies_mean:     5.2562	test_dead_enemies_mean:    7.7438	test_ep_length_mean:      32.4625
+test_return_mean:         18.7357	test_return_std:           2.4504	
+[INFO 20:50:55] my_main Updated target network
+[INFO 20:51:50] my_main t_env: 320640 / 2050000
+[INFO 20:51:50] my_main Estimated time left: 6 hours, 32 minutes, 32 seconds. Time passed: 1 hours, 20 minutes, 32 seconds
+[INFO 20:51:58] my_main Recent Stats | t_env:     320640 | Episode:    10934
+battle_won_mean:           0.5231	dead_allies_mean:          6.3421	dead_enemies_mean:         6.7643	ep_length_mean:           33.4540
+epsilon:                   0.0500	grad_norm:               105.7697	loss:                      1.2516	q_taken_mean:              2.1116
+return_mean:              15.7564	return_std:                4.5212	target_mean:               2.1054	td_error_abs:              0.6987
+test_battle_won_mean:      0.8562	test_dead_allies_mean:     5.0687	test_dead_enemies_mean:    7.7625	test_ep_length_mean:      31.7062
+test_return_mean:         18.8973	test_return_std:           2.3939	
+[INFO 20:52:25] my_main Updated target network
+[INFO 20:53:49] my_main Updated target network
+[INFO 20:54:08] my_main t_env: 330642 / 2050000
+[INFO 20:54:08] my_main Estimated time left: 6 hours, 35 minutes, 0 seconds. Time passed: 1 hours, 22 minutes, 50 seconds
+[INFO 20:54:15] my_main Recent Stats | t_env:     330642 | Episode:    11247
+battle_won_mean:           0.5389	dead_allies_mean:          6.2727	dead_enemies_mean:         6.8063	ep_length_mean:           33.1658
+epsilon:                   0.0500	grad_norm:               109.1709	loss:                      1.2690	q_taken_mean:              2.0735
+return_mean:              15.9039	return_std:                4.5097	target_mean:               2.0865	td_error_abs:              0.6946
+test_battle_won_mean:      0.8750	test_dead_allies_mean:     4.9688	test_dead_enemies_mean:    7.7812	test_ep_length_mean:      31.2437
+test_return_mean:         19.0221	test_return_std:           2.2978	
+[INFO 20:55:19] my_main Updated target network
+[INFO 20:56:22] my_main t_env: 340658 / 2050000
+[INFO 20:56:22] my_main Estimated time left: 6 hours, 22 minutes, 26 seconds. Time passed: 1 hours, 25 minutes, 4 seconds
+[INFO 20:56:30] my_main Recent Stats | t_env:     340658 | Episode:    11555
+battle_won_mean:           0.5332	dead_allies_mean:          6.2935	dead_enemies_mean:         6.8112	ep_length_mean:           32.9242
+epsilon:                   0.0500	grad_norm:               108.0240	loss:                      1.2396	q_taken_mean:              2.0398
+return_mean:              15.8804	return_std:                4.4861	target_mean:               2.0676	td_error_abs:              0.6748
+test_battle_won_mean:      0.8125	test_dead_allies_mean:     5.1375	test_dead_enemies_mean:    7.6625	test_ep_length_mean:      32.5438
+test_return_mean:         18.5270	test_return_std:           2.8133	
+[INFO 20:56:49] my_main Updated target network
+[INFO 20:58:16] my_main Updated target network
+[INFO 20:58:39] my_main t_env: 350677 / 2050000
+[INFO 20:58:39] my_main Estimated time left: 6 hours, 25 minutes, 22 seconds. Time passed: 1 hours, 27 minutes, 21 seconds
+[INFO 20:58:46] my_main Recent Stats | t_env:     350677 | Episode:    11852
+battle_won_mean:           0.5123	dead_allies_mean:          6.3783	dead_enemies_mean:         6.7615	ep_length_mean:           32.7134
+epsilon:                   0.0500	grad_norm:               103.6613	loss:                      1.1291	q_taken_mean:              2.0569
+return_mean:              15.6856	return_std:                4.5050	target_mean:               2.0755	td_error_abs:              0.6322
+test_battle_won_mean:      0.8313	test_dead_allies_mean:     4.9938	test_dead_enemies_mean:    7.7000	test_ep_length_mean:      31.6125
+test_return_mean:         18.6746	test_return_std:           2.7255	
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:40704 disconnected
+[INFO 20:59:20] absl Shutdown gracefully.
+[INFO 20:59:20] absl Shutdown with return code: -15
+[INFO 20:59:20] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 17734 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-hr61teuj/
+[INFO 20:59:21] absl Connecting to: ws://127.0.0.1:17734/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 17734 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-hr61teuj/'
+Starting up...
+Startup Phase 1 complete
+[INFO 20:59:22] absl Connecting to: ws://127.0.0.1:17734/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:17734
+Startup Phase 3 complete. Ready for commands.
+[INFO 20:59:23] absl Connecting to: ws://127.0.0.1:17734/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:43872 accepted
+ReadyHandler: 127.0.0.1:43872 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 20:59:57] my_main Updated target network
+[INFO 21:01:06] my_main t_env: 360701 / 2050000
+[INFO 21:01:06] my_main Estimated time left: 6 hours, 52 minutes, 41 seconds. Time passed: 1 hours, 29 minutes, 48 seconds
+[INFO 21:01:14] my_main Recent Stats | t_env:     360701 | Episode:    12160
+battle_won_mean:           0.5124	dead_allies_mean:          6.3667	dead_enemies_mean:         6.7518	ep_length_mean:           32.5733
+epsilon:                   0.0500	grad_norm:               115.9308	loss:                      1.2291	q_taken_mean:              2.0986
+return_mean:              15.6867	return_std:                4.5057	target_mean:               2.1103	td_error_abs:              0.6590
+test_battle_won_mean:      0.7875	test_dead_allies_mean:     5.0813	test_dead_enemies_mean:    7.6375	test_ep_length_mean:      33.0000
+test_return_mean:         18.3500	test_return_std:           3.1228	
+[INFO 21:01:32] my_main Updated target network
+[INFO 21:02:56] my_main Updated target network
+[INFO 21:03:26] my_main t_env: 370724 / 2050000
+[INFO 21:03:26] my_main Estimated time left: 6 hours, 32 minutes, 15 seconds. Time passed: 1 hours, 32 minutes, 8 seconds
+[INFO 21:03:33] my_main Recent Stats | t_env:     370724 | Episode:    12471
+battle_won_mean:           0.5282	dead_allies_mean:          6.3103	dead_enemies_mean:         6.8076	ep_length_mean:           32.5965
+epsilon:                   0.0500	grad_norm:               117.2855	loss:                      1.1956	q_taken_mean:              2.1413
+return_mean:              15.8434	return_std:                4.4715	target_mean:               2.1497	td_error_abs:              0.6490
+test_battle_won_mean:      0.8062	test_dead_allies_mean:     5.0188	test_dead_enemies_mean:    7.6750	test_ep_length_mean:      32.0938
+test_return_mean:         18.5059	test_return_std:           2.9151	
+[INFO 21:04:29] my_main Updated target network
+[INFO 21:05:43] my_main t_env: 380742 / 2050000
+[INFO 21:05:43] my_main Estimated time left: 6 hours, 20 minutes, 32 seconds. Time passed: 1 hours, 34 minutes, 25 seconds
+[INFO 21:05:50] my_main Recent Stats | t_env:     380742 | Episode:    12772
+battle_won_mean:           0.5353	dead_allies_mean:          6.2950	dead_enemies_mean:         6.8435	ep_length_mean:           32.8619
+epsilon:                   0.0500	grad_norm:               115.3456	loss:                      1.1838	q_taken_mean:              2.0837
+return_mean:              15.9288	return_std:                4.4312	target_mean:               2.0898	td_error_abs:              0.6353
+test_battle_won_mean:      0.8000	test_dead_allies_mean:     5.0687	test_dead_enemies_mean:    7.6500	test_ep_length_mean:      32.1937
+test_return_mean:         18.4543	test_return_std:           2.9773	
+[INFO 21:06:02] my_main Updated target network
+[INFO 21:07:28] my_main Updated target network
+[INFO 21:07:58] my_main t_env: 390816 / 2050000
+[INFO 21:07:58] my_main Estimated time left: 6 hours, 9 minutes, 43 seconds. Time passed: 1 hours, 36 minutes, 40 seconds
+[INFO 21:08:05] my_main Recent Stats | t_env:     390816 | Episode:    13069
+battle_won_mean:           0.5512	dead_allies_mean:          6.2204	dead_enemies_mean:         6.8804	ep_length_mean:           33.1419
+epsilon:                   0.0500	grad_norm:               103.1519	loss:                      1.2103	q_taken_mean:              2.1636
+return_mean:              16.0607	return_std:                4.4198	target_mean:               2.1653	td_error_abs:              0.6461
+test_battle_won_mean:      0.8438	test_dead_allies_mean:     4.9313	test_dead_enemies_mean:    7.7312	test_ep_length_mean:      31.9000
+test_return_mean:         18.7982	test_return_std:           2.7425	
+[INFO 21:09:02] my_main Updated target network
+[INFO 21:10:08] my_main t_env: 400824 / 2050000
+[INFO 21:10:08] my_main Estimated time left: 5 hours, 57 minutes, 27 seconds. Time passed: 1 hours, 38 minutes, 50 seconds
+[INFO 21:10:15] my_main Recent Stats | t_env:     400824 | Episode:    13351
+battle_won_mean:           0.5695	dead_allies_mean:          6.1124	dead_enemies_mean:         6.9367	ep_length_mean:           33.4929
+epsilon:                   0.0500	grad_norm:               103.4630	loss:                      1.1753	q_taken_mean:              2.0887
+return_mean:              16.2394	return_std:                4.3999	target_mean:               2.0818	td_error_abs:              0.6222
+test_battle_won_mean:      0.8813	test_dead_allies_mean:     4.7937	test_dead_enemies_mean:    7.7875	test_ep_length_mean:      31.0375
+test_return_mean:         19.0707	test_return_std:           2.4259	
+[INFO 21:10:36] my_main Updated target network
+[INFO 21:12:06] my_main Updated target network
+[INFO 21:12:14] my_main t_env: 410831 / 2050000
+[INFO 21:12:14] my_main Estimated time left: 5 hours, 43 minutes, 6 seconds. Time passed: 1 hours, 40 minutes, 56 seconds
+[INFO 21:12:21] my_main Recent Stats | t_env:     410831 | Episode:    13620
+battle_won_mean:           0.5711	dead_allies_mean:          6.0914	dead_enemies_mean:         6.9634	ep_length_mean:           34.4240
+epsilon:                   0.0500	grad_norm:                94.6364	loss:                      1.0834	q_taken_mean:              2.0314
+return_mean:              16.2656	return_std:                4.3849	target_mean:               2.0304	td_error_abs:              0.5966
+test_battle_won_mean:      0.9187	test_dead_allies_mean:     4.6188	test_dead_enemies_mean:    7.8313	test_ep_length_mean:      29.4500
+test_return_mean:         19.3428	test_return_std:           2.1601	
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:43872 disconnected
+[INFO 21:12:39] absl Shutdown gracefully.
+[INFO 21:12:39] absl Shutdown with return code: -15
+[INFO 21:12:39] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 18758 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-xsnjddc9/
+[INFO 21:12:39] absl Connecting to: ws://127.0.0.1:18758/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 18758 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-xsnjddc9/'
+Starting up...
+Startup Phase 1 complete
+[INFO 21:12:40] absl Connecting to: ws://127.0.0.1:18758/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:18758
+Startup Phase 3 complete. Ready for commands.
+[INFO 21:12:41] absl Connecting to: ws://127.0.0.1:18758/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:51254 accepted
+ReadyHandler: 127.0.0.1:51254 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 21:13:45] my_main Updated target network
+[INFO 21:14:26] my_main t_env: 420836 / 2050000
+[INFO 21:14:26] my_main Estimated time left: 5 hours, 58 minutes, 58 seconds. Time passed: 1 hours, 43 minutes, 8 seconds
+[INFO 21:14:32] my_main Recent Stats | t_env:     420836 | Episode:    13896
+battle_won_mean:           0.5590	dead_allies_mean:          6.0768	dead_enemies_mean:         6.9129	ep_length_mean:           35.2283
+epsilon:                   0.0500	grad_norm:                93.4198	loss:                      1.1829	q_taken_mean:              1.9948
+return_mean:              16.1227	return_std:                4.4366	target_mean:               2.0033	td_error_abs:              0.6436
+test_battle_won_mean:      0.9250	test_dead_allies_mean:     4.5500	test_dead_enemies_mean:    7.8375	test_ep_length_mean:      28.9750
+test_return_mean:         19.3879	test_return_std:           2.0863	
+[INFO 21:15:18] my_main Updated target network
+[INFO 21:16:36] my_main t_env: 430843 / 2050000
+[INFO 21:16:36] my_main Estimated time left: 5 hours, 51 minutes, 55 seconds. Time passed: 1 hours, 45 minutes, 18 seconds
+[INFO 21:16:44] my_main Recent Stats | t_env:     430843 | Episode:    14189
+battle_won_mean:           0.5466	dead_allies_mean:          6.1196	dead_enemies_mean:         6.8796	ep_length_mean:           35.4026
+epsilon:                   0.0500	grad_norm:               112.9705	loss:                      1.5117	q_taken_mean:              2.0543
+return_mean:              16.0167	return_std:                4.4515	target_mean:               2.0654	td_error_abs:              0.6831
+test_battle_won_mean:      0.8938	test_dead_allies_mean:     4.6062	test_dead_enemies_mean:    7.7875	test_ep_length_mean:      30.3062
+test_return_mean:         19.1430	test_return_std:           2.2722	
+[INFO 21:16:50] my_main Updated target network
+[INFO 21:18:15] my_main Updated target network
+[INFO 21:18:50] my_main t_env: 440845 / 2050000
+[INFO 21:18:50] my_main Estimated time left: 5 hours, 57 minutes, 42 seconds. Time passed: 1 hours, 47 minutes, 32 seconds
+[INFO 21:18:56] my_main Recent Stats | t_env:     440845 | Episode:    14487
+battle_won_mean:           0.5556	dead_allies_mean:          6.0927	dead_enemies_mean:         6.8937	ep_length_mean:           35.3315
+epsilon:                   0.0500	grad_norm:               135.0188	loss:                      1.6338	q_taken_mean:              1.9205
+return_mean:              16.0801	return_std:                4.4558	target_mean:               1.9227	td_error_abs:              0.6921
+test_battle_won_mean:      0.9062	test_dead_allies_mean:     4.5000	test_dead_enemies_mean:    7.8187	test_ep_length_mean:      29.1875
+test_return_mean:         19.2467	test_return_std:           2.1049	
+[INFO 21:19:45] my_main Updated target network
+[INFO 21:21:06] my_main Updated target network
+[INFO 21:21:08] my_main t_env: 450859 / 2050000
+[INFO 21:21:08] my_main Estimated time left: 6 hours, 8 minutes, 54 seconds. Time passed: 1 hours, 49 minutes, 50 seconds
+[INFO 21:21:15] my_main Recent Stats | t_env:     450859 | Episode:    14805
+battle_won_mean:           0.5791	dead_allies_mean:          6.0041	dead_enemies_mean:         6.9374	ep_length_mean:           34.5317
+epsilon:                   0.0500	grad_norm:               133.8806	loss:                      1.6583	q_taken_mean:              1.9263
+return_mean:              16.2696	return_std:                4.4315	target_mean:               1.9247	td_error_abs:              0.7142
+test_battle_won_mean:      0.9000	test_dead_allies_mean:     4.5437	test_dead_enemies_mean:    7.8000	test_ep_length_mean:      29.0625
+test_return_mean:         19.1941	test_return_std:           2.2198	
+[INFO 21:22:37] my_main Updated target network
+[INFO 21:23:21] my_main t_env: 460872 / 2050000
+[INFO 21:23:21] my_main Estimated time left: 5 hours, 51 minutes, 0 seconds. Time passed: 1 hours, 52 minutes, 3 seconds
+[INFO 21:23:28] my_main Recent Stats | t_env:     460872 | Episode:    15110
+battle_won_mean:           0.5930	dead_allies_mean:          5.9239	dead_enemies_mean:         6.9654	ep_length_mean:           33.6575
+epsilon:                   0.0500	grad_norm:               141.5377	loss:                      1.8302	q_taken_mean:              1.8368
+return_mean:              16.3870	return_std:                4.4148	target_mean:               1.8399	td_error_abs:              0.7059
+test_battle_won_mean:      0.8750	test_dead_allies_mean:     4.7188	test_dead_enemies_mean:    7.7500	test_ep_length_mean:      29.0312
+test_return_mean:         18.9918	test_return_std:           2.4699	
+[INFO 21:24:04] my_main Updated target network
+[INFO 21:25:25] my_main Updated target network
+[INFO 21:25:42] my_main t_env: 470872 / 2050000
+[INFO 21:25:42] my_main Estimated time left: 6 hours, 9 minutes, 55 seconds. Time passed: 1 hours, 54 minutes, 24 seconds
+[INFO 21:25:48] my_main Recent Stats | t_env:     470872 | Episode:    15441
+battle_won_mean:           0.6156	dead_allies_mean:          5.8571	dead_enemies_mean:         7.0463	ep_length_mean:           32.4498
+epsilon:                   0.0500	grad_norm:               132.0923	loss:                      1.7975	q_taken_mean:              1.7756
+return_mean:              16.6220	return_std:                4.3364	target_mean:               1.7717	td_error_abs:              0.6619
+test_battle_won_mean:      0.8687	test_dead_allies_mean:     4.6562	test_dead_enemies_mean:    7.7438	test_ep_length_mean:      28.9937
+test_return_mean:         18.9490	test_return_std:           2.5347	
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:51254 disconnected
+[INFO 21:26:04] absl Shutdown gracefully.
+[INFO 21:26:04] absl Shutdown with return code: -15
+[INFO 21:26:04] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 17804 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-r5gawnnv/
+[INFO 21:26:04] absl Connecting to: ws://127.0.0.1:17804/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 17804 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-r5gawnnv/'
+Starting up...
+Startup Phase 1 complete
+[INFO 21:26:05] absl Connecting to: ws://127.0.0.1:17804/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:17804
+Startup Phase 3 complete. Ready for commands.
+[INFO 21:26:06] absl Connecting to: ws://127.0.0.1:17804/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:58706 accepted
+ReadyHandler: 127.0.0.1:58706 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 21:27:00] my_main Updated target network
+[INFO 21:28:07] my_main t_env: 480891 / 2050000
+[INFO 21:28:07] my_main Estimated time left: 6 hours, 18 minutes, 44 seconds. Time passed: 1 hours, 56 minutes, 49 seconds
+[INFO 21:28:13] my_main Recent Stats | t_env:     480891 | Episode:    15769
+battle_won_mean:           0.6396	dead_allies_mean:          5.7342	dead_enemies_mean:         7.0921	ep_length_mean:           31.7282
+epsilon:                   0.0500	grad_norm:               109.4924	loss:                      1.4829	q_taken_mean:              1.6943
+return_mean:              16.8157	return_std:                4.3218	target_mean:               1.6914	td_error_abs:              0.6289
+test_battle_won_mean:      0.9125	test_dead_allies_mean:     4.4812	test_dead_enemies_mean:    7.8187	test_ep_length_mean:      27.2750
+test_return_mean:         19.2881	test_return_std:           2.2345	
+[INFO 21:28:27] my_main Updated target network
+[INFO 21:29:47] my_main Updated target network
+[INFO 21:30:33] my_main t_env: 490915 / 2050000
+[INFO 21:30:33] my_main Estimated time left: 6 hours, 19 minutes, 0 seconds. Time passed: 1 hours, 59 minutes, 15 seconds
+[INFO 21:30:40] my_main Recent Stats | t_env:     490915 | Episode:    16114
+battle_won_mean:           0.6374	dead_allies_mean:          5.7430	dead_enemies_mean:         7.0963	ep_length_mean:           30.8265
+epsilon:                   0.0500	grad_norm:               103.2939	loss:                      1.3566	q_taken_mean:              1.7232
+return_mean:              16.8008	return_std:                4.3211	target_mean:               1.7361	td_error_abs:              0.6224
+test_battle_won_mean:      0.8625	test_dead_allies_mean:     4.7688	test_dead_enemies_mean:    7.7063	test_ep_length_mean:      28.0125
+test_return_mean:         18.8502	test_return_std:           2.6762	
+[INFO 21:31:15] my_main Updated target network
+[INFO 21:32:34] my_main Updated target network
+[INFO 21:32:51] my_main t_env: 500919 / 2050000
+[INFO 21:32:51] my_main Estimated time left: 5 hours, 56 minutes, 55 seconds. Time passed: 2 hours, 1 minutes, 33 seconds
+[INFO 21:32:58] my_main Recent Stats | t_env:     500919 | Episode:    16444
+battle_won_mean:           0.6163	dead_allies_mean:          5.8442	dead_enemies_mean:         7.0500	ep_length_mean:           30.5914
+epsilon:                   0.0500	grad_norm:               104.0875	loss:                      1.4135	q_taken_mean:              1.6740
+return_mean:              16.6220	return_std:                4.3539	target_mean:               1.6987	td_error_abs:              0.5988
+test_battle_won_mean:      0.8625	test_dead_allies_mean:     4.7750	test_dead_enemies_mean:    7.7188	test_ep_length_mean:      28.2625
+test_return_mean:         18.8576	test_return_std:           2.6463	
+[INFO 21:34:02] my_main Updated target network
+[INFO 21:35:09] my_main t_env: 510942 / 2050000
+[INFO 21:35:09] my_main Estimated time left: 5 hours, 52 minutes, 36 seconds. Time passed: 2 hours, 3 minutes, 51 seconds
+[INFO 21:35:16] my_main Recent Stats | t_env:     510942 | Episode:    16775
+battle_won_mean:           0.6078	dead_allies_mean:          5.9121	dead_enemies_mean:         7.0314	ep_length_mean:           30.0817
+epsilon:                   0.0500	grad_norm:                92.4124	loss:                      1.2436	q_taken_mean:              1.6307
+return_mean:              16.5496	return_std:                4.3677	target_mean:               1.6715	td_error_abs:              0.6030
+test_battle_won_mean:      0.8875	test_dead_allies_mean:     4.7188	test_dead_enemies_mean:    7.7625	test_ep_length_mean:      27.7812
+test_return_mean:         19.0527	test_return_std:           2.4217	
+[INFO 21:35:26] my_main Updated target network
+[INFO 21:36:45] my_main Updated target network
+[INFO 21:37:28] my_main t_env: 520946 / 2050000
+[INFO 21:37:28] my_main Estimated time left: 5 hours, 53 minutes, 46 seconds. Time passed: 2 hours, 6 minutes, 10 seconds
+[INFO 21:37:35] my_main Recent Stats | t_env:     520946 | Episode:    17109
+battle_won_mean:           0.6024	dead_allies_mean:          5.9545	dead_enemies_mean:         7.0114	ep_length_mean:           30.0298
+epsilon:                   0.0500	grad_norm:               103.5880	loss:                      1.1725	q_taken_mean:              1.7438
+return_mean:              16.4875	return_std:                4.4038	target_mean:               1.7590	td_error_abs:              0.6173
+test_battle_won_mean:      0.8625	test_dead_allies_mean:     4.8500	test_dead_enemies_mean:    7.7188	test_ep_length_mean:      28.1437
+test_return_mean:         18.8658	test_return_std:           2.6227	
+[INFO 21:38:11] my_main Updated target network
+[INFO 21:39:27] my_main Updated target network
+[INFO 21:39:44] my_main t_env: 530973 / 2050000
+[INFO 21:39:44] my_main Estimated time left: 5 hours, 43 minutes, 42 seconds. Time passed: 2 hours, 8 minutes, 26 seconds
+[INFO 21:39:52] my_main Recent Stats | t_env:     530973 | Episode:    17442
+battle_won_mean:           0.5993	dead_allies_mean:          5.9998	dead_enemies_mean:         7.0208	ep_length_mean:           29.9429
+epsilon:                   0.0500	grad_norm:               102.9643	loss:                      1.1187	q_taken_mean:              1.7631
+return_mean:              16.4741	return_std:                4.3829	target_mean:               1.7617	td_error_abs:              0.5969
+test_battle_won_mean:      0.8562	test_dead_allies_mean:     4.9688	test_dead_enemies_mean:    7.7250	test_ep_length_mean:      28.7875
+test_return_mean:         18.8340	test_return_std:           2.6373	
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:58706 disconnected
+ResponseThread: No connection, dropping the response.
+[INFO 21:39:59] absl Shutdown gracefully.
+[INFO 21:39:59] absl Shutdown with return code: -15
+[INFO 21:39:59] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 24696 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-x0uwn50h/
+[INFO 21:39:59] absl Connecting to: ws://127.0.0.1:24696/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 24696 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-x0uwn50h/'
+Starting up...
+Startup Phase 1 complete
+[INFO 21:40:00] absl Connecting to: ws://127.0.0.1:24696/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:24696
+Startup Phase 3 complete. Ready for commands.
+[INFO 21:40:01] absl Connecting to: ws://127.0.0.1:24696/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:49498 accepted
+ReadyHandler: 127.0.0.1:49498 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 21:41:00] my_main Updated target network
+[INFO 21:42:05] my_main t_env: 540988 / 2050000
+[INFO 21:42:05] my_main Estimated time left: 5 hours, 54 minutes, 33 seconds. Time passed: 2 hours, 10 minutes, 47 seconds
+[INFO 21:42:12] my_main Recent Stats | t_env:     540988 | Episode:    17769
+battle_won_mean:           0.6067	dead_allies_mean:          5.9689	dead_enemies_mean:         7.0382	ep_length_mean:           30.2572
+epsilon:                   0.0500	grad_norm:               107.6537	loss:                      1.1604	q_taken_mean:              1.8545
+return_mean:              16.5563	return_std:                4.3403	target_mean:               1.8385	td_error_abs:              0.5995
+test_battle_won_mean:      0.9125	test_dead_allies_mean:     4.6937	test_dead_enemies_mean:    7.8438	test_ep_length_mean:      28.3000
+test_return_mean:         19.3193	test_return_std:           2.0822	
+[INFO 21:42:24] my_main Updated target network
+[INFO 21:43:41] my_main Updated target network
+[INFO 21:44:14] my_main t_env: 551005 / 2050000
+[INFO 21:44:14] my_main Estimated time left: 5 hours, 21 minutes, 43 seconds. Time passed: 2 hours, 12 minutes, 56 seconds
+[INFO 21:44:21] my_main Recent Stats | t_env:     551005 | Episode:    18089
+battle_won_mean:           0.6139	dead_allies_mean:          5.9519	dead_enemies_mean:         7.0619	ep_length_mean:           30.4548
+epsilon:                   0.0500	grad_norm:               106.7018	loss:                      1.1031	q_taken_mean:              1.9499
+return_mean:              16.6238	return_std:                4.3224	target_mean:               1.9345	td_error_abs:              0.6166
+test_battle_won_mean:      0.9250	test_dead_allies_mean:     4.6438	test_dead_enemies_mean:    7.8625	test_ep_length_mean:      28.1500
+test_return_mean:         19.4191	test_return_std:           1.6928	
+[INFO 21:45:05] my_main Updated target network
+[INFO 21:46:19] my_main Updated target network
+[INFO 21:46:27] my_main t_env: 561011 / 2050000
+[INFO 21:46:27] my_main Estimated time left: 5 hours, 28 minutes, 0 seconds. Time passed: 2 hours, 15 minutes, 9 seconds
+[INFO 21:46:33] my_main Recent Stats | t_env:     561011 | Episode:    18420
+battle_won_mean:           0.6339	dead_allies_mean:          5.8963	dead_enemies_mean:         7.1289	ep_length_mean:           30.4446
+epsilon:                   0.0500	grad_norm:                98.8623	loss:                      1.0620	q_taken_mean:              2.0154
+return_mean:              16.8200	return_std:                4.2391	target_mean:               1.9847	td_error_abs:              0.6058
+test_battle_won_mean:      0.9187	test_dead_allies_mean:     4.6062	test_dead_enemies_mean:    7.8500	test_ep_length_mean:      27.9312
+test_return_mean:         19.3703	test_return_std:           1.7682	
+[INFO 21:47:41] my_main Updated target network
+[INFO 21:48:37] my_main t_env: 571020 / 2050000
+[INFO 21:48:37] my_main Estimated time left: 5 hours, 22 minutes, 32 seconds. Time passed: 2 hours, 17 minutes, 20 seconds
+[INFO 21:48:44] my_main Recent Stats | t_env:     571020 | Episode:    18755
+battle_won_mean:           0.6377	dead_allies_mean:          5.8939	dead_enemies_mean:         7.1522	ep_length_mean:           30.4297
+epsilon:                   0.0500	grad_norm:                92.1750	loss:                      1.0180	q_taken_mean:              1.9446
+return_mean:              16.8717	return_std:                4.2062	target_mean:               1.9365	td_error_abs:              0.5720
+test_battle_won_mean:      0.9500	test_dead_allies_mean:     4.5250	test_dead_enemies_mean:    7.9062	test_ep_length_mean:      27.8375
+test_return_mean:         19.6061	test_return_std:           1.4686	
+[INFO 21:49:00] my_main Updated target network
+[INFO 21:50:13] my_main Updated target network
+[INFO 21:50:46] my_main t_env: 581025 / 2050000
+[INFO 21:50:46] my_main Estimated time left: 5 hours, 14 minutes, 28 seconds. Time passed: 2 hours, 19 minutes, 28 seconds
+[INFO 21:50:53] my_main Recent Stats | t_env:     581025 | Episode:    19091
+battle_won_mean:           0.6407	dead_allies_mean:          5.8572	dead_enemies_mean:         7.1627	ep_length_mean:           30.3628
+epsilon:                   0.0500	grad_norm:                99.3421	loss:                      1.1225	q_taken_mean:              1.9684
+return_mean:              16.9048	return_std:                4.1862	target_mean:               1.9780	td_error_abs:              0.6024
+test_battle_won_mean:      0.9625	test_dead_allies_mean:     4.4563	test_dead_enemies_mean:    7.9313	test_ep_length_mean:      27.4750
+test_return_mean:         19.7014	test_return_std:           1.2906	
+[INFO 21:51:31] my_main Updated target network
+[INFO 21:52:43] my_main Updated target network
+[INFO 21:52:54] my_main t_env: 591031 / 2050000
+[INFO 21:52:54] my_main Estimated time left: 5 hours, 10 minutes, 23 seconds. Time passed: 2 hours, 21 minutes, 36 seconds
+[INFO 21:53:00] my_main Recent Stats | t_env:     591031 | Episode:    19430
+battle_won_mean:           0.6496	dead_allies_mean:          5.8170	dead_enemies_mean:         7.1833	ep_length_mean:           30.1407
+epsilon:                   0.0500	grad_norm:                84.0094	loss:                      1.1367	q_taken_mean:              1.9491
+return_mean:              16.9732	return_std:                4.1650	target_mean:               1.9635	td_error_abs:              0.6039
+test_battle_won_mean:      0.9500	test_dead_allies_mean:     4.5125	test_dead_enemies_mean:    7.9125	test_ep_length_mean:      27.3250
+test_return_mean:         19.6133	test_return_std:           1.4625	
+RequestQuit command received.
+DataHandler: unable to parse websocket frame.
+Closing Application...
+CloseHandler: 127.0.0.1:49498 disconnected
+ResponseThread: No connection, dropping the response.
+[INFO 21:53:03] absl Shutdown gracefully.
+[INFO 21:53:03] absl Shutdown with return code: -15
+[INFO 21:53:03] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 18172 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-wh_pljvu/
+[INFO 21:53:04] absl Connecting to: ws://127.0.0.1:18172/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 18172 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-wh_pljvu/'
+Starting up...
+Startup Phase 1 complete
+[INFO 21:53:05] absl Connecting to: ws://127.0.0.1:18172/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:18172
+Startup Phase 3 complete. Ready for commands.
+[INFO 21:53:06] absl Connecting to: ws://127.0.0.1:18172/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:36394 accepted
+ReadyHandler: 127.0.0.1:36394 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 21:54:09] my_main Updated target network
+[INFO 21:55:05] my_main t_env: 601042 / 2050000
+[INFO 21:55:05] my_main Estimated time left: 5 hours, 17 minutes, 22 seconds. Time passed: 2 hours, 23 minutes, 47 seconds
+[INFO 21:55:12] my_main Recent Stats | t_env:     601042 | Episode:    19764
+battle_won_mean:           0.6668	dead_allies_mean:          5.7336	dead_enemies_mean:         7.2348	ep_length_mean:           29.8747
+epsilon:                   0.0500	grad_norm:               106.9627	loss:                      1.3981	q_taken_mean:              2.0276
+return_mean:              17.1441	return_std:                4.0907	target_mean:               2.0367	td_error_abs:              0.6192
+test_battle_won_mean:      0.9375	test_dead_allies_mean:     4.5188	test_dead_enemies_mean:    7.8938	test_ep_length_mean:      27.9375
+test_return_mean:         19.5123	test_return_std:           1.8538	
+[INFO 21:55:26] my_main Updated target network
+[INFO 21:56:37] my_main Updated target network
+[INFO 21:57:12] my_main t_env: 611044 / 2050000
+[INFO 21:57:12] my_main Estimated time left: 5 hours, 3 minutes, 27 seconds. Time passed: 2 hours, 25 minutes, 54 seconds
+[INFO 21:57:18] my_main Recent Stats | t_env:     611044 | Episode:    20101
+battle_won_mean:           0.6591	dead_allies_mean:          5.7202	dead_enemies_mean:         7.2004	ep_length_mean:           29.7646
+epsilon:                   0.0500	grad_norm:               113.3273	loss:                      1.3943	q_taken_mean:              2.1215
+return_mean:              17.0562	return_std:                4.1428	target_mean:               2.1399	td_error_abs:              0.6230
+test_battle_won_mean:      0.9438	test_dead_allies_mean:     4.4500	test_dead_enemies_mean:    7.9250	test_ep_length_mean:      28.0125
+test_return_mean:         19.5734	test_return_std:           1.7314	
+[INFO 21:57:53] my_main Updated target network
+[INFO 21:59:03] my_main Updated target network
+[INFO 21:59:12] my_main t_env: 621047 / 2050000
+[INFO 21:59:12] my_main Estimated time left: 4 hours, 44 minutes, 59 seconds. Time passed: 2 hours, 27 minutes, 54 seconds
+[INFO 21:59:18] my_main Recent Stats | t_env:     621047 | Episode:    20426
+battle_won_mean:           0.6642	dead_allies_mean:          5.6927	dead_enemies_mean:         7.2167	ep_length_mean:           29.9448
+epsilon:                   0.0500	grad_norm:               111.0931	loss:                      1.5025	q_taken_mean:              2.2050
+return_mean:              17.1030	return_std:                4.1257	target_mean:               2.2124	td_error_abs:              0.6310
+test_battle_won_mean:      0.9312	test_dead_allies_mean:     4.3812	test_dead_enemies_mean:    7.8938	test_ep_length_mean:      28.0000
+test_return_mean:         19.4721	test_return_std:           1.9097	
+[INFO 22:00:20] my_main Updated target network
+[INFO 22:01:15] my_main t_env: 631049 / 2050000
+[INFO 22:01:15] my_main Estimated time left: 4 hours, 50 minutes, 58 seconds. Time passed: 2 hours, 29 minutes, 57 seconds
+[INFO 22:01:21] my_main Recent Stats | t_env:     631049 | Episode:    20763
+battle_won_mean:           0.6739	dead_allies_mean:          5.6727	dead_enemies_mean:         7.2368	ep_length_mean:           29.9254
+epsilon:                   0.0500	grad_norm:               112.6493	loss:                      1.4827	q_taken_mean:              2.2712
+return_mean:              17.1840	return_std:                4.0993	target_mean:               2.2795	td_error_abs:              0.6390
+test_battle_won_mean:      0.9312	test_dead_allies_mean:     4.3313	test_dead_enemies_mean:    7.8938	test_ep_length_mean:      28.2188
+test_return_mean:         19.4732	test_return_std:           1.9031	
+[INFO 22:01:35] my_main Updated target network
+[INFO 22:02:44] my_main Updated target network
+[INFO 22:03:16] my_main t_env: 641072 / 2050000
+[INFO 22:03:16] my_main Estimated time left: 4 hours, 45 minutes, 14 seconds. Time passed: 2 hours, 31 minutes, 58 seconds
+[INFO 22:03:24] my_main Recent Stats | t_env:     641072 | Episode:    21095
+battle_won_mean:           0.6630	dead_allies_mean:          5.7383	dead_enemies_mean:         7.2283	ep_length_mean:           30.0601
+epsilon:                   0.0500	grad_norm:               134.3806	loss:                      1.5072	q_taken_mean:              2.3000
+return_mean:              17.1093	return_std:                4.1088	target_mean:               2.2972	td_error_abs:              0.6592
+test_battle_won_mean:      0.9125	test_dead_allies_mean:     4.3500	test_dead_enemies_mean:    7.8562	test_ep_length_mean:      29.3625
+test_return_mean:         19.3092	test_return_std:           2.1140	
+[INFO 22:04:01] my_main Updated target network
+[INFO 22:05:10] my_main Updated target network
+[INFO 22:05:18] my_main t_env: 651080 / 2050000
+[INFO 22:05:18] my_main Estimated time left: 4 hours, 43 minutes, 8 seconds. Time passed: 2 hours, 34 minutes, 0 seconds
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:36394 disconnected
+ResponseThread: No connection, dropping the response.
+[INFO 22:05:21] absl Shutdown gracefully.
+[INFO 22:05:21] absl Shutdown with return code: -15
+[INFO 22:05:21] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 23505 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-e99dzbvt/
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+[INFO 22:05:22] absl Connecting to: ws://127.0.0.1:23505/sc2api, attempt: 0, running: True
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 23505 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-e99dzbvt/'
+Starting up...
+Startup Phase 1 complete
+[INFO 22:05:23] absl Connecting to: ws://127.0.0.1:23505/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:23505
+Startup Phase 3 complete. Ready for commands.
+[INFO 22:05:24] absl Connecting to: ws://127.0.0.1:23505/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:50250 accepted
+ReadyHandler: 127.0.0.1:50250 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+[INFO 22:05:31] my_main Recent Stats | t_env:     651080 | Episode:    21424
+battle_won_mean:           0.6577	dead_allies_mean:          5.7561	dead_enemies_mean:         7.2090	ep_length_mean:           30.1493
+epsilon:                   0.0500	grad_norm:               117.7196	loss:                      1.2740	q_taken_mean:              2.2815
+return_mean:              17.0561	return_std:                4.1394	target_mean:               2.2891	td_error_abs:              0.6555
+test_battle_won_mean:      0.8813	test_dead_allies_mean:     4.4750	test_dead_enemies_mean:    7.7688	test_ep_length_mean:      29.3937
+test_return_mean:         19.0557	test_return_std:           2.3992	
+[INFO 22:06:34] my_main Updated target network
+[INFO 22:07:24] my_main t_env: 661084 / 2050000
+[INFO 22:07:24] my_main Estimated time left: 4 hours, 51 minutes, 2 seconds. Time passed: 2 hours, 36 minutes, 6 seconds
+[INFO 22:07:31] my_main Recent Stats | t_env:     661084 | Episode:    21742
+battle_won_mean:           0.6654	dead_allies_mean:          5.7678	dead_enemies_mean:         7.2446	ep_length_mean:           30.5053
+epsilon:                   0.0500	grad_norm:               123.6822	loss:                      1.3085	q_taken_mean:              2.2712
+return_mean:              17.1353	return_std:                4.0986	target_mean:               2.2798	td_error_abs:              0.6572
+test_battle_won_mean:      0.8750	test_dead_allies_mean:     4.6188	test_dead_enemies_mean:    7.7438	test_ep_length_mean:      29.9438
+test_return_mean:         18.9924	test_return_std:           2.5277	
+[INFO 22:07:50] my_main Updated target network
+[INFO 22:08:58] my_main Updated target network
+[INFO 22:09:24] my_main t_env: 671096 / 2050000
+[INFO 22:09:24] my_main Estimated time left: 4 hours, 36 minutes, 24 seconds. Time passed: 2 hours, 38 minutes, 6 seconds
+[INFO 22:09:30] my_main Recent Stats | t_env:     671096 | Episode:    22077
+battle_won_mean:           0.6698	dead_allies_mean:          5.7212	dead_enemies_mean:         7.2450	ep_length_mean:           30.3269
+epsilon:                   0.0500	grad_norm:               135.1681	loss:                      1.3092	q_taken_mean:              2.3264
+return_mean:              17.1740	return_std:                4.0828	target_mean:               2.3292	td_error_abs:              0.6733
+test_battle_won_mean:      0.8813	test_dead_allies_mean:     4.7125	test_dead_enemies_mean:    7.7625	test_ep_length_mean:      29.9250
+test_return_mean:         19.0520	test_return_std:           2.4211	
+[INFO 22:10:14] my_main Updated target network
+[INFO 22:11:24] my_main Updated target network
+[INFO 22:11:27] my_main t_env: 681108 / 2050000
+[INFO 22:11:27] my_main Estimated time left: 4 hours, 40 minutes, 19 seconds. Time passed: 2 hours, 40 minutes, 9 seconds
+[INFO 22:11:34] my_main Recent Stats | t_env:     681108 | Episode:    22410
+battle_won_mean:           0.6631	dead_allies_mean:          5.7396	dead_enemies_mean:         7.2319	ep_length_mean:           30.4042
+epsilon:                   0.0500	grad_norm:               135.0281	loss:                      1.2862	q_taken_mean:              2.3164
+return_mean:              17.1127	return_std:                4.1148	target_mean:               2.3198	td_error_abs:              0.6641
+test_battle_won_mean:      0.8813	test_dead_allies_mean:     4.7562	test_dead_enemies_mean:    7.7562	test_ep_length_mean:      30.0750
+test_return_mean:         19.0518	test_return_std:           2.4222	
+[INFO 22:12:41] my_main Updated target network
+[INFO 22:13:29] my_main t_env: 691137 / 2050000
+[INFO 22:13:29] my_main Estimated time left: 4 hours, 35 minutes, 18 seconds. Time passed: 2 hours, 42 minutes, 11 seconds
+[INFO 22:13:36] my_main Recent Stats | t_env:     691137 | Episode:    22739
+battle_won_mean:           0.6612	dead_allies_mean:          5.7472	dead_enemies_mean:         7.2098	ep_length_mean:           30.4629
+epsilon:                   0.0500	grad_norm:               125.2087	loss:                      1.2403	q_taken_mean:              2.3403
+return_mean:              17.0751	return_std:                4.1510	target_mean:               2.3671	td_error_abs:              0.6525
+test_battle_won_mean:      0.9000	test_dead_allies_mean:     4.7688	test_dead_enemies_mean:    7.7812	test_ep_length_mean:      29.2375
+test_return_mean:         19.1967	test_return_std:           2.2708	
+[INFO 22:13:57] my_main Updated target network
+[INFO 22:15:04] my_main Updated target network
+[INFO 22:15:29] my_main t_env: 701159 / 2050000
+[INFO 22:15:29] my_main Estimated time left: 4 hours, 29 minutes, 43 seconds. Time passed: 2 hours, 44 minutes, 11 seconds
+[INFO 22:15:36] my_main Recent Stats | t_env:     701159 | Episode:    23074
+battle_won_mean:           0.6631	dead_allies_mean:          5.7869	dead_enemies_mean:         7.2158	ep_length_mean:           30.3623
+epsilon:                   0.0500	grad_norm:               131.2098	loss:                      1.2700	q_taken_mean:              2.4273
+return_mean:              17.0868	return_std:                4.1528	target_mean:               2.4349	td_error_abs:              0.6652
+test_battle_won_mean:      0.9187	test_dead_allies_mean:     4.6813	test_dead_enemies_mean:    7.8313	test_ep_length_mean:      28.7188
+test_return_mean:         19.3275	test_return_std:           2.1865	
+[INFO 22:16:20] my_main Updated target network

@@ -1,0 +1,105 @@
+{
+  "artifacts": [],
+  "command": "my_main",
+  "experiment": {
+    "base_dir": "/home/zpp/graduation_design/pymarl_base/pymarl-master/src",
+    "dependencies": [
+      "munch==2.5.0",
+      "numpy==1.19.5",
+      "PyYAML==5.4.1",
+      "sacred==0.8.2",
+      "torch==1.7.1"
+    ],
+    "mainfile": "main.py",
+    "name": "pymarl",
+    "repositories": [],
+    "sources": [
+      [
+        "main.py",
+        "_sources/main_63d7d00072f4e5be0310acb11aa60581.py"
+      ],
+      [
+        "run.py",
+        "_sources/run_a6a347b02855cb21c511cd481850d006.py"
+      ],
+      [
+        "utils/__init__.py",
+        "_sources/__init___d41d8cd98f00b204e9800998ecf8427e.py"
+      ],
+      [
+        "utils/logging.py",
+        "_sources/logging_2c814fe775935963fe055f6f37191d6e.py"
+      ]
+    ]
+  },
+  "heartbeat": "2021-03-20T21:37:30.914151",
+  "host": {
+    "ENV": {},
+    "cpu": "Intel(R) Xeon(R) Platinum 8280 CPU @ 2.70GHz",
+    "gpus": {
+      "driver_version": "460.39",
+      "gpus": [
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        }
+      ]
+    },
+    "hostname": "admin001-SYS-7049GP-TRT",
+    "os": [
+      "Linux",
+      "Linux-5.8.0-44-generic-x86_64-with-glibc2.10"
+    ],
+    "python_version": "3.8.5"
+  },
+  "meta": {
+    "command": "my_main",
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "env_args.map_name=8m"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2021-03-20T14:07:42.187945",
+  "status": "RUNNING"
+}

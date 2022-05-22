@@ -1,0 +1,161 @@
+{
+  "artifacts": [],
+  "command": "my_main",
+  "experiment": {
+    "base_dir": "/home/zpp/graduation_design/pymarl_base/pymarl-master/src",
+    "dependencies": [
+      "munch==2.5.0",
+      "numpy==1.19.5",
+      "PyYAML==5.4.1",
+      "sacred==0.8.2",
+      "torch==1.7.1"
+    ],
+    "mainfile": "main.py",
+    "name": "pymarl",
+    "repositories": [],
+    "sources": [
+      [
+        "main.py",
+        "_sources/main_758fbd5734579733d1a65a9522fb1179.py"
+      ],
+      [
+        "run.py",
+        "_sources/run_90fe8d1bec811b68387cb1fe08348824.py"
+      ],
+      [
+        "utils/__init__.py",
+        "_sources/__init___d41d8cd98f00b204e9800998ecf8427e.py"
+      ],
+      [
+        "utils/logging.py",
+        "_sources/logging_2c814fe775935963fe055f6f37191d6e.py"
+      ]
+    ]
+  },
+  "fail_trace": [
+    "Traceback (most recent call last):\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_socket.py\", line 102, in recv\n    bytes_ = _recv()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_socket.py\", line 84, in _recv\n    return sock.recv(bufsize)\n",
+    "socket.timeout: timed out\n",
+    "\nDuring handling of the above exception, another exception occurred:\n\n",
+    "Traceback (most recent call last):\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 66, in catch_websocket_connection_errors\n    yield\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 183, in _read\n    response_str = self._sock.recv()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_core.py\", line 314, in recv\n    opcode, data = self.recv_data()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_core.py\", line 331, in recv_data\n    opcode, frame = self.recv_data_frame(control_frame)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_core.py\", line 344, in recv_data_frame\n    frame = self.recv_frame()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_core.py\", line 378, in recv_frame\n    return self.frame_buffer.recv_frame()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_abnf.py\", line 361, in recv_frame\n    self.recv_header()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_abnf.py\", line 309, in recv_header\n    header = self.recv_strict(2)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_abnf.py\", line 396, in recv_strict\n    bytes_ = self.recv(min(16384, shortage))\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_core.py\", line 453, in _recv\n    return recv(self.sock, bufsize)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/websocket/_socket.py\", line 105, in recv\n    raise WebSocketTimeoutException(message)\n",
+    "websocket._exceptions.WebSocketTimeoutException: timed out\n",
+    "\nDuring handling of the above exception, another exception occurred:\n\n",
+    "Traceback (most recent call last):\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 151, in send\n    res = self.send_req(req)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 131, in send_req\n    return self.read()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/stopwatch.py\", line 212, in _stopwatch\n    return func(*args, **kwargs)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 102, in read\n    response = self._read()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 183, in _read\n    response_str = self._sock.recv()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/contextlib.py\", line 131, in __exit__\n    self.gen.throw(type, value, traceback)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 71, in catch_websocket_connection_errors\n    raise ConnectionError(\"Websocket timed out.\")\n",
+    "pysc2.lib.protocol.ConnectionError: Websocket timed out.\n",
+    "\nDuring handling of the above exception, another exception occurred:\n\n",
+    "Traceback (most recent call last):\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/starcraft2.py\", line 421, in step\n    self._obs = self._controller.observe()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/remote_controller.py\", line 99, in _valid_status\n    return func(self, *args, **kwargs)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/stopwatch.py\", line 212, in _stopwatch\n    return func(*args, **kwargs)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/remote_controller.py\", line 248, in observe\n    obs = self._client.send(observation=sc_pb.RequestObservation(\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/protocol.py\", line 153, in send\n    raise ConnectionError(\"Error during %s: %s\" % (name, e))\n",
+    "pysc2.lib.protocol.ConnectionError: Error during observation: Websocket timed out.\n",
+    "\nDuring handling of the above exception, another exception occurred:\n\n",
+    "Traceback (most recent call last):\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/sacred/config/captured_function.py\", line 42, in captured_function\n    result = wrapped(*args, **kwargs)\n",
+    "  File \"src/main.py\", line 35, in my_main\n    run(_run, config, _log)\n",
+    "  File \"/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py\", line 48, in run\n    run_sequential(args=args, logger=logger)\n",
+    "  File \"/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py\", line 176, in run_sequential\n    episode_batch = runner.run(test_mode=False)\n",
+    "  File \"/home/zpp/graduation_design/pymarl_base/pymarl-master/src/runners/episode_runner.py\", line 81, in run\n    reward, terminated, env_info = self.env.step(actions[0])\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/starcraft2.py\", line 423, in step\n    self.full_restart()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/starcraft2.py\", line 390, in full_restart\n    self._launch()\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/starcraft2.py\", line 297, in _launch\n    self._sc2_proc = self._run_config.start(window_size=self.window_size, want_rgb=False)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/run_configs/platforms.py\", line 204, in start\n    return super(Linux, self).start(\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/run_configs/platforms.py\", line 87, in start\n    return sc_process.StarcraftProcess(\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/sc_process.py\", line 142, in __init__\n    self._controller = remote_controller.RemoteController(\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/remote_controller.py\", line 146, in __init__\n    sock = self._connect(host, port, proc, timeout_seconds)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/stopwatch.py\", line 212, in _stopwatch\n    return func(*args, **kwargs)\n",
+    "  File \"/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/pysc2/lib/remote_controller.py\", line 180, in _connect\n    raise ConnectError(\"Failed to connect to the SC2 websocket. Is it up?\")\n",
+    "pysc2.lib.remote_controller.ConnectError: Failed to connect to the SC2 websocket. Is it up?\n"
+  ],
+  "heartbeat": "2021-04-30T15:48:36.007847",
+  "host": {
+    "ENV": {},
+    "cpu": "Intel(R) Xeon(R) Platinum 8280 CPU @ 2.70GHz",
+    "gpus": {
+      "driver_version": "460.39",
+      "gpus": [
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        },
+        {
+          "model": "GeForce RTX 3090",
+          "persistence_mode": false,
+          "total_memory": 24268
+        }
+      ]
+    },
+    "hostname": "admin001-SYS-7049GP-TRT",
+    "os": [
+      "Linux",
+      "Linux-5.8.0-44-generic-x86_64-with-glibc2.10"
+    ],
+    "python_version": "3.8.5"
+  },
+  "meta": {
+    "command": "my_main",
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "env_args.map_name=1c3s5z"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2021-04-30T11:58:49.985064",
+  "status": "FAILED",
+  "stop_time": "2021-04-30T15:48:36.098380"
+}

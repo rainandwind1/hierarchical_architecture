@@ -1,0 +1,231 @@
+[INFO 17:00:42] pymarl Running command 'my_main'
+[INFO 17:00:42] pymarl Started run with ID "385"
+[DEBUG 17:00:42] pymarl Starting Heartbeat
+[DEBUG 17:00:42] my_main Started
+[INFO 17:00:42] my_main Experiment Parameters:
+[INFO 17:00:42] my_main 
+
+{   'a_action_size': 0,
+    'a_macro_size': 2,
+    'a_move_size': 6,
+    'action_selector': 'epsilon_greedy',
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 32,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 5000,
+    'checkpoint_path': 'results/models/qmix__2021-07-09_09-20-11/',
+    'critic_lr': 0.0005,
+    'double_q': True,
+    'env': 'sc2',
+    'env_args': {   'continuing_episode': False,
+                    'debug': False,
+                    'difficulty': '7',
+                    'game_version': None,
+                    'heuristic_ai': False,
+                    'heuristic_rest': False,
+                    'map_name': '2c_vs_64zg',
+                    'move_amount': 2,
+                    'obs_all_health': True,
+                    'obs_instead_of_state': False,
+                    'obs_last_action': False,
+                    'obs_own_health': True,
+                    'obs_pathing_grid': False,
+                    'obs_terrain_height': False,
+                    'obs_timestep_number': False,
+                    'replay_dir': '',
+                    'replay_prefix': '',
+                    'reward_death_value': 10,
+                    'reward_defeat': 0,
+                    'reward_negative_scale': 0.5,
+                    'reward_only_positive': True,
+                    'reward_scale': True,
+                    'reward_scale_rate': 20,
+                    'reward_sparse': False,
+                    'reward_win': 200,
+                    'seed': 757753110,
+                    'state_last_action': True,
+                    'state_timestep_number': False,
+                    'step_mul': 8},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': True,
+    'gamma': 0.99,
+    'goal_num': 4,
+    'grad_norm_clip': 10,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'load_step': 2000387,
+    'local_results_path': 'results',
+    'log_interval': 10000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'min_horizon': 1,
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'random_walk': 2000,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'episode',
+    'runner_log_interval': 10000,
+    'save_model': True,
+    'save_model_interval': 2000000,
+    'save_replay': True,
+    'seed': 757753110,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'test_greedy': True,
+    'test_interval': 10000,
+    'test_nepisode': 32,
+    'use_cuda': True,
+    'use_tensorboard': False}
+
+[INFO 17:00:49] my_main Loading model from results/models/qmix__2021-07-09_09-20-11/2000387
+[INFO 17:00:49] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 21411 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-q6k2xpnu/
+[INFO 17:00:52] absl Connecting to: ws://127.0.0.1:21411/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 21411 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-q6k2xpnu/'
+Starting up...
+Startup Phase 1 complete
+[INFO 17:00:53] absl Connecting to: ws://127.0.0.1:21411/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:21411
+Startup Phase 3 complete. Ready for commands.
+[INFO 17:00:54] absl Connecting to: ws://127.0.0.1:21411/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:54410 accepted
+ReadyHandler: 127.0.0.1:54410 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/pymarl_base_HRL3/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 17:00:59] my_main collect map data ...
+[INFO 17:00:59] my_main save map data success!
+[INFO 17:00:59] my_main save map data success!
+[INFO 17:01:00] my_main collect map data ...
+[INFO 17:01:01] my_main save map data success!
+[INFO 17:01:01] my_main save map data success!
+[INFO 17:01:02] my_main collect map data ...
+[INFO 17:01:02] my_main save map data success!
+[INFO 17:01:02] my_main save map data success!
+[INFO 17:01:03] my_main collect map data ...
+[INFO 17:01:03] my_main save map data success!
+[INFO 17:01:03] my_main save map data success!
+[INFO 17:01:04] my_main collect map data ...
+[INFO 17:01:04] my_main save map data success!
+[INFO 17:01:04] my_main save map data success!
+[INFO 17:01:06] my_main collect map data ...
+[INFO 17:01:06] my_main save map data success!
+[INFO 17:01:06] my_main save map data success!
+[INFO 17:01:07] my_main collect map data ...
+[INFO 17:01:07] my_main save map data success!
+[INFO 17:01:07] my_main save map data success!
+[INFO 17:01:08] my_main collect map data ...
+[INFO 17:01:08] my_main save map data success!
+[INFO 17:01:08] my_main save map data success!
+[INFO 17:01:09] my_main collect map data ...
+[INFO 17:01:09] my_main save map data success!
+[INFO 17:01:09] my_main save map data success!
+[INFO 17:01:10] my_main collect map data ...
+[INFO 17:01:10] my_main save map data success!
+[INFO 17:01:10] my_main save map data success!
+[INFO 17:01:12] my_main collect map data ...
+[INFO 17:01:12] my_main save map data success!
+[INFO 17:01:12] my_main save map data success!
+[INFO 17:01:13] my_main collect map data ...
+[INFO 17:01:13] my_main save map data success!
+[INFO 17:01:13] my_main save map data success!
+[INFO 17:01:14] my_main collect map data ...
+[INFO 17:01:14] my_main save map data success!
+[INFO 17:01:14] my_main save map data success!
+[INFO 17:01:15] my_main collect map data ...
+[INFO 17:01:16] my_main save map data success!
+[INFO 17:01:16] my_main save map data success!
+[INFO 17:01:17] my_main collect map data ...
+[INFO 17:01:17] my_main save map data success!
+[INFO 17:01:17] my_main save map data success!
+[INFO 17:01:18] my_main collect map data ...
+[INFO 17:01:18] my_main save map data success!
+[INFO 17:01:18] my_main save map data success!
+[INFO 17:01:19] my_main collect map data ...
+[INFO 17:01:19] my_main save map data success!
+[INFO 17:01:19] my_main save map data success!
+[INFO 17:01:20] my_main collect map data ...
+[INFO 17:01:20] my_main save map data success!
+[INFO 17:01:21] my_main save map data success!
+[INFO 17:01:22] my_main collect map data ...
+[INFO 17:01:22] my_main save map data success!
+[INFO 17:01:22] my_main save map data success!
+[INFO 17:01:23] my_main collect map data ...
+[INFO 17:01:23] my_main save map data success!
+[INFO 17:01:23] my_main save map data success!
+[INFO 17:01:24] my_main collect map data ...
+[INFO 17:01:24] my_main save map data success!
+[INFO 17:01:24] my_main save map data success!
+[INFO 17:01:25] my_main collect map data ...
+[INFO 17:01:26] my_main save map data success!
+[INFO 17:01:26] my_main save map data success!
+[INFO 17:01:27] my_main collect map data ...
+[INFO 17:01:27] my_main save map data success!
+[INFO 17:01:27] my_main save map data success!
+[INFO 17:01:28] my_main collect map data ...
+[INFO 17:01:28] my_main save map data success!
+[INFO 17:01:28] my_main save map data success!
+[INFO 17:01:29] my_main collect map data ...
+[INFO 17:01:29] my_main save map data success!
+[INFO 17:01:29] my_main save map data success!
+[INFO 17:01:31] my_main collect map data ...
+[INFO 17:01:31] my_main save map data success!
+[INFO 17:01:31] my_main save map data success!
+[INFO 17:01:32] my_main collect map data ...
+[INFO 17:01:32] my_main save map data success!
+[INFO 17:01:36] my_main save map data success!
+[INFO 17:01:37] my_main collect map data ...
+[INFO 17:01:37] my_main save map data success!
+[INFO 17:01:38] my_main save map data success!
+[INFO 17:01:39] my_main collect map data ...
+[INFO 17:01:39] my_main save map data success!
+[INFO 17:01:39] my_main save map data success!
+[INFO 17:01:40] my_main collect map data ...
+[INFO 17:01:40] my_main save map data success!
+[INFO 17:01:40] my_main save map data success!
+[INFO 17:01:41] my_main collect map data ...
+[INFO 17:01:41] my_main save map data success!
+[INFO 17:01:42] my_main save map data success!
+[INFO 17:01:43] my_main collect map data ...
+[INFO 17:01:43] my_main save map data success!
+[INFO 17:01:43] my_main save map data success!
+[INFO 17:01:43] absl Replay saved at: /home/zpp/StarCraftII/Replays/2c_vs_64zg_2021-07-12-09-01-43.SC2Replay
+RequestQuit command received.
+Closing Application...
+DataHandler: unable to parse websocket frame.
+CloseHandler: 127.0.0.1:54410 disconnected
+[INFO 17:01:44] absl Shutdown gracefully.
+[INFO 17:01:44] absl Shutdown with return code: -15

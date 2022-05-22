@@ -1,0 +1,115 @@
+[DEBUG 15:00:32] git.cmd Popen(['git', 'version'], cwd=/home/zpp/graduation_design/pymarl_base/pymarl-master, universal_newlines=False, shell=None, istream=None)
+[DEBUG 15:00:32] git.cmd Popen(['git', 'version'], cwd=/home/zpp/graduation_design/pymarl_base/pymarl-master, universal_newlines=False, shell=None, istream=None)
+src/main.py:79: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config_dict = yaml.load(f)
+src/main.py:49: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config_dict = yaml.load(f)
+src/main.py:57: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+  if isinstance(v, collections.Mapping):
+[INFO 15:00:32] root Saving to FileStorageObserver in results/sacred.
+[DEBUG 15:00:32] pymarl Using capture mode "fd"
+[INFO 15:00:32] pymarl Running command 'my_main'
+[INFO 15:00:32] pymarl Started run with ID "15"
+[DEBUG 15:00:32] pymarl Starting Heartbeat
+[DEBUG 15:00:32] my_main Started
+[INFO 15:00:32] my_main Experiment Parameters:
+[INFO 15:00:32] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 32,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 5000,
+    'checkpoint_path': '',
+    'critic_lr': 0.0005,
+    'double_q': True,
+    'env': 'sc2',
+    'env_args': {   'continuing_episode': False,
+                    'debug': False,
+                    'difficulty': '7',
+                    'game_version': None,
+                    'heuristic_ai': False,
+                    'heuristic_rest': False,
+                    'map_name': '5m',
+                    'move_amount': 2,
+                    'obs_all_health': True,
+                    'obs_instead_of_state': False,
+                    'obs_last_action': False,
+                    'obs_own_health': True,
+                    'obs_pathing_grid': False,
+                    'obs_terrain_height': False,
+                    'obs_timestep_number': False,
+                    'replay_dir': '',
+                    'replay_prefix': '',
+                    'reward_death_value': 10,
+                    'reward_defeat': 0,
+                    'reward_negative_scale': 0.5,
+                    'reward_only_positive': True,
+                    'reward_scale': True,
+                    'reward_scale_rate': 20,
+                    'reward_sparse': False,
+                    'reward_win': 200,
+                    'seed': 762913761,
+                    'state_last_action': True,
+                    'state_timestep_number': False,
+                    'step_mul': 8},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 10000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'qmix',
+    'mixing_embed_dim': 32,
+    'name': 'qmix',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'episode',
+    'runner_log_interval': 10000,
+    'save_model': False,
+    'save_model_interval': 2000000,
+    'save_replay': False,
+    'seed': 762913761,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'test_greedy': True,
+    'test_interval': 10000,
+    'test_nepisode': 32,
+    'use_cuda': True,
+    'use_tensorboard': False}
+
+[DEBUG 15:00:32] pymarl Stopping Heartbeat
+[ERROR 15:00:32] pymarl Failed after 0:00:00!
+Traceback (most recent calls WITHOUT Sacred internals):
+  File "src/main.py", line 35, in my_main
+    run(_run, config, _log)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py", line 48, in run
+    run_sequential(args=args, logger=logger)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py", line 79, in run_sequential
+    runner = r_REGISTRY[args.runner](args=args, logger=logger)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/runners/episode_runner.py", line 15, in __init__
+    self.env = env_REGISTRY[self.args.env](**self.args.env_args)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/envs/__init__.py", line 7, in env_fn
+    return env(**kwargs)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/starcraft2.py", line 196, in __init__
+    map_params = get_map_params(self.map_name)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/smac/env/starcraft2/maps/__init__.py", line 10, in get_map_params
+    return map_param_registry[map_name]
+KeyError: '5m'
+

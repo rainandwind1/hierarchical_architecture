@@ -1,0 +1,52 @@
+{
+  "epsilon": [
+    0.0
+  ],
+  "epsilon_T": [
+    2000054
+  ],
+  "test_battle_won_mean": [
+    1.0
+  ],
+  "test_battle_won_mean_T": [
+    2000054
+  ],
+  "test_dead_allies_mean": [
+    4.0
+  ],
+  "test_dead_allies_mean_T": [
+    2000054
+  ],
+  "test_dead_enemies_mean": [
+    8.0
+  ],
+  "test_dead_enemies_mean_T": [
+    2000054
+  ],
+  "test_ep_length_mean": [
+    28.0
+  ],
+  "test_ep_length_mean_T": [
+    2000054
+  ],
+  "test_return_mean": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 20.0
+    }
+  ],
+  "test_return_mean_T": [
+    2000054
+  ],
+  "test_return_std": [
+    {
+      "dtype": "float64",
+      "py/object": "numpy.float64",
+      "value": 0.0
+    }
+  ],
+  "test_return_std_T": [
+    2000054
+  ]
+}

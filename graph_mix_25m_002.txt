@@ -1,0 +1,190 @@
+[DEBUG 10:26:58] git.cmd Popen(['git', 'version'], cwd=/home/zpp/graduation_design/pymarl_base/pymarl-master, universal_newlines=False, shell=None, istream=None)
+[DEBUG 10:26:58] git.cmd Popen(['git', 'version'], cwd=/home/zpp/graduation_design/pymarl_base/pymarl-master, universal_newlines=False, shell=None, istream=None)
+src/main.py:79: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config_dict = yaml.load(f)
+src/main.py:49: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config_dict = yaml.load(f)
+src/main.py:57: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.9 it will stop working
+  if isinstance(v, collections.Mapping):
+[INFO 10:26:59] root Saving to FileStorageObserver in results/sacred.
+[DEBUG 10:26:59] pymarl Using capture mode "fd"
+[INFO 10:26:59] pymarl Running command 'my_main'
+[INFO 10:26:59] pymarl Started run with ID "67"
+[DEBUG 10:26:59] pymarl Starting Heartbeat
+[DEBUG 10:26:59] my_main Started
+[INFO 10:26:59] my_main Experiment Parameters:
+[INFO 10:26:59] my_main 
+
+{   'action_selector': 'epsilon_greedy',
+    'agent': 'rnn',
+    'agent_output_type': 'q',
+    'batch_size': 32,
+    'batch_size_run': 1,
+    'buffer_cpu_only': True,
+    'buffer_size': 5000,
+    'checkpoint_path': '',
+    'critic_lr': 0.0005,
+    'double_q': True,
+    'env': 'sc2',
+    'env_args': {   'continuing_episode': False,
+                    'debug': False,
+                    'difficulty': '7',
+                    'game_version': None,
+                    'heuristic_ai': False,
+                    'heuristic_rest': False,
+                    'map_name': '25m',
+                    'move_amount': 2,
+                    'obs_all_health': True,
+                    'obs_instead_of_state': False,
+                    'obs_last_action': False,
+                    'obs_own_health': True,
+                    'obs_pathing_grid': False,
+                    'obs_terrain_height': False,
+                    'obs_timestep_number': False,
+                    'replay_dir': '',
+                    'replay_prefix': '',
+                    'reward_death_value': 10,
+                    'reward_defeat': 0,
+                    'reward_negative_scale': 0.5,
+                    'reward_only_positive': True,
+                    'reward_scale': True,
+                    'reward_scale_rate': 20,
+                    'reward_sparse': False,
+                    'reward_win': 200,
+                    'seed': 81823689,
+                    'state_last_action': True,
+                    'state_timestep_number': False,
+                    'step_mul': 8},
+    'epsilon_anneal_time': 50000,
+    'epsilon_finish': 0.05,
+    'epsilon_start': 1.0,
+    'evaluate': False,
+    'gamma': 0.99,
+    'grad_norm_clip': 10,
+    'hypernet_embed': 64,
+    'hypernet_layers': 2,
+    'label': 'default_label',
+    'learner': 'q_learner',
+    'learner_log_interval': 10000,
+    'load_step': 0,
+    'local_results_path': 'results',
+    'log_interval': 10000,
+    'lr': 0.0005,
+    'mac': 'basic_mac',
+    'mixer': 'graph_qmix',
+    'mixing_embed_dim': 32,
+    'name': 'graph_qmix',
+    'obs_agent_id': True,
+    'obs_last_action': True,
+    'optim_alpha': 0.99,
+    'optim_eps': 1e-05,
+    'repeat_id': 1,
+    'rnn_hidden_dim': 64,
+    'runner': 'episode',
+    'runner_log_interval': 10000,
+    'save_model': False,
+    'save_model_interval': 2000000,
+    'save_replay': False,
+    'seed': 81823689,
+    't_max': 2050000,
+    'target_update_interval': 200,
+    'test_greedy': True,
+    'test_interval': 10000,
+    'test_nepisode': 32,
+    'use_cuda': True,
+    'use_tensorboard': False}
+
+[INFO 10:27:03] my_main Beginning training for 2050000 timesteps
+[INFO 10:27:03] absl Launching SC2: /home/zpp/StarCraftII/Versions/Base75689/SC2_x64 -listen 127.0.0.1 -port 21184 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-zqp9sjmr/
+[INFO 10:27:04] absl Connecting to: ws://127.0.0.1:21184/sc2api, attempt: 0, running: True
+Version: B75689 (SC2.4.10)
+Build: Aug 12 2019 17:16:57
+Command Line: '"/home/zpp/StarCraftII/Versions/Base75689/SC2_x64" -listen 127.0.0.1 -port 21184 -dataDir /home/zpp/StarCraftII/ -tempDir /tmp/sc-zqp9sjmr/'
+Starting up...
+Startup Phase 1 complete
+[INFO 10:27:05] absl Connecting to: ws://127.0.0.1:21184/sc2api, attempt: 1, running: True
+Startup Phase 2 complete
+Creating stub renderer...
+Listening on: 127.0.0.1:21184
+Startup Phase 3 complete. Ready for commands.
+[INFO 10:27:06] absl Connecting to: ws://127.0.0.1:21184/sc2api, attempt: 2, running: True
+ConnectHandler: Request from 127.0.0.1:41376 accepted
+ReadyHandler: 127.0.0.1:41376 ready
+Requesting to join a single player game
+Configuring interface options
+Configure: raw interface enabled
+Configure: feature layer interface disabled
+Configure: score interface disabled
+Configure: render interface disabled
+Launching next game.
+Next launch phase started: 2
+Next launch phase started: 3
+Next launch phase started: 4
+Next launch phase started: 5
+Next launch phase started: 6
+Next launch phase started: 7
+Next launch phase started: 8
+Game has started.
+Using default stable ids, none found at: /home/zpp/StarCraftII/stableid.json
+Successfully loaded stable ids: GameData\stableid.json
+Sending ResponseJoinGame
+/home/zpp/graduation_design/pymarl_base/pymarl-master/src/components/episode_buffer.py:103: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  v = th.tensor(v, dtype=dtype, device=self.device)
+[INFO 10:27:14] my_main t_env: 35 / 2050000
+[INFO 10:27:14] my_main Estimated time left: 36 minutes, 24 seconds. Time passed: 10 seconds
+[INFO 10:31:45] my_main Updated target network
+[INFO 10:32:43] my_main Recent Stats | t_env:      10019 | Episode:      251
+battle_won_mean:           0.0000	dead_allies_mean:         25.0000	dead_enemies_mean:         0.0000	ep_length_mean:           35.0000
+epsilon:                   1.0000	grad_norm:                 4.0002	loss:                      0.2255	q_taken_mean:              0.0134
+return_mean:               2.3619	return_std:                0.0000	target_mean:               0.0277	td_error_abs:              0.3717
+test_battle_won_mean:      0.0000	test_dead_allies_mean:    24.7812	test_dead_enemies_mean:    3.0000	test_ep_length_mean:      62.3125
+test_return_mean:          3.0429	test_return_std:           0.8886	
+[INFO 10:32:44] my_main t_env: 10051 / 2050000
+[INFO 10:32:44] my_main Estimated time left: 18 hours, 40 minutes, 0 seconds. Time passed: 5 minutes, 40 seconds
+[INFO 10:35:48] my_main Updated target network
+[INFO 10:38:39] my_main Recent Stats | t_env:      20043 | Episode:      579
+battle_won_mean:           0.0000	dead_allies_mean:         25.0000	dead_enemies_mean:         0.0478	ep_length_mean:           37.4522
+epsilon:                   0.8096	grad_norm:                 2.0385	loss:                      0.1167	q_taken_mean:              0.0200
+return_mean:               2.3563	return_std:                0.2038	target_mean:               0.0274	td_error_abs:              0.2179
+test_battle_won_mean:      0.0000	test_dead_allies_mean:    24.8594	test_dead_enemies_mean:   10.0469	test_ep_length_mean:      51.3125
+test_return_mean:          8.1431	test_return_std:           1.1377	
+[INFO 10:38:40] my_main t_env: 20070 / 2050000
+[INFO 10:38:40] my_main Estimated time left: 20 hours, 3 minutes, 53 seconds. Time passed: 11 minutes, 37 seconds
+[INFO 10:39:29] my_main Updated target network
+/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/sacred/stdout_capturing.py:184: UserWarning: tee_stdout.wait timeout. Forcibly terminating.
+  warnings.warn("tee_stdout.wait timeout. Forcibly terminating.")
+/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/sacred/stdout_capturing.py:190: UserWarning: tee_stderr.wait timeout. Forcibly terminating.
+  warnings.warn("tee_stderr.wait timeout. Forcibly terminating.")
+[DEBUG 10:42:44] pymarl Stopping Heartbeat
+[ERROR 10:42:44] pymarl Failed after 0:15:45!
+Traceback (most recent calls WITHOUT Sacred internals):
+  File "src/main.py", line 35, in my_main
+    run(_run, config, _log)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py", line 48, in run
+    run_sequential(args=args, logger=logger)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/run.py", line 180, in run_sequential
+    learner.train(episode_sample, runner.t_env, episode)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/learners/q_learner.py", line 87, in train
+    target_max_qvals = self.target_mixer(target_max_qvals, batch["state"][:, 1:], batch["obs"][:, :-1], batch["adjacency_matrix"][:, :-1])
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/modules/mixers/graph_qmix.py", line 57, in forward
+    graph_weights = self.get_graph_info(obs_ls, adj_ls)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/modules/mixers/graph_qmix.py", line 47, in get_graph_info
+    gat_op = self.gat_module((obs_ls, adj_ls)).view(-1, self.n_agents, self.n_agents)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/modules/mixers/graph_qmix.py", line 133, in forward
+    return self.gat_net(inputs)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/torch/nn/modules/container.py", line 117, in forward
+    input = module(input)
+  File "/home/zpp/anaconda3/envs/Smac/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/zpp/graduation_design/pymarl_base/pymarl-master/src/modules/mixers/graph_qmix.py", line 104, in forward
+    a_input = th.cat([h.repeat(1, 1, 1, N).view(BATCH_SIZE, SEQ_LEN, N*N, -1), h.repeat(1, 1, N, 1)], -1).view(BATCH_SIZE, SEQ_LEN, N, -1, 2*self.out_features)
+RuntimeError: CUDA out of memory. Tried to allocate 1.43 GiB (GPU 0; 23.70 GiB total capacity; 5.27 GiB already allocated; 836.81 MiB free; 5.90 GiB reserved in total by PyTorch)
+
+[INFO 10:42:44] absl Shutdown gracefully.
+[INFO 10:42:44] absl Shutdown with return code: -15
